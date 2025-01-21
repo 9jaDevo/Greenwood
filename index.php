@@ -1,25 +1,19 @@
+<?php
+// Include database connection
+include('config.php');
+
+// Get the total number of submissions from the database
+$totalParticipantsQuery = "SELECT COUNT(*) AS total FROM submissions";
+$result = $conn->query($totalParticipantsQuery);
+$totalParticipants = $result->fetch_assoc()['total'];
+$displayCount = 3000 + $totalParticipants; // Static 3000 + DB count
+?>
 <!doctype html>
 <html lang="zxx">
 
-<head>
-
-    <!--========= Required meta tags =========-->
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>GreenWordAI - Airdrop and Presales</title>
-    <link rel="shortcut icon" href="assets/img/favicon.png" type="images/x-icon" />
-
-    <!-- css include -->
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/fontawesome.css">
-    <link rel="stylesheet" href="assets/css/animate.css">
-    <link rel="stylesheet" href="assets/css/swiper.min.css">
-    <link rel="stylesheet" href="assets/css/odometer.css">
-    <link rel="stylesheet" href="assets/css/magnific-popup.css">
-    <link rel="stylesheet" href="assets/css/main.css">
-</head>
+<?php
+include('header.php');
+?>
 
 <body>
 
@@ -56,33 +50,7 @@
                             <a href="index.html"><img src="assets/img/logo/Logo.svg" alt=""></a>
                         </div>
                         <div class="main-menu__wrap ul_li navbar navbar-expand-lg">
-                            <!-- <nav class="main-menu collapse navbar-collapse">
-                                <ul>
-                                    <li class="menu-item-has-children">
-                                        <a href="index.html"><span>Home</span></a>
-                                        <ul class="submenu">
-                                            <li><a href="index.html"><span>ICO Investment</span></a></li>
-                                            <li><a href="home-2.html"><span>Crypto Exchange</span></a></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a class="scrollspy-btn" href="#features"><span>Features</span></a>
-                                    </li>
-                                    <li>
-                                        <a class="scrollspy-btn" href="#integration"><span>Integration</span></a>
-                                   </li>
-                                    <li class="menu-item-has-children">
-                                        <a href="#!"><span>Blog</span></a>
-                                        <ul class="submenu">
-                                            <li><a href="blog.html"><span>Blog</span></a></li>
-                                            <li><a href="blog-single.html"><span>Blog Details</span></a></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="contact.html"><span>Contact</span></a>
-                                    </li>
-                                </ul>
-                            </nav> -->
+
                             <div class="xb-header-wrap">
                                 <div class="xb-header-menu">
                                     <div class="xb-header-menu-scroll">
@@ -316,94 +284,23 @@
             </section>
             <!-- partners section end  -->
 
-            <!-- feature section start -->
-            <!-- <section class="feature z-1 pos-rel pt-110">
-                <div class="container">
-                    <div class="section-title pb-55">
-                        <h1 class="title">How It Works</h1>
-                    </div>
-                    <div class="row mt-none-30">
-                        <div class="col-xl-3 col-lg-6 col-md-6 feature-col mt-30">
-                            <div class="xb-feature pos-rel">
-                                <div class="xb-item--holder text-center">
-                                    <div class="xb-item--img">
-                                        <img src="assets/img/feature/feature-icon1.png" alt="">
-                                    </div>
-                                    <h2 class="xb-item--title">Create Wallet</h2>
-                                    <p class="xb-item--content">Secure your digital assets effortlessly.Join now for
-                                        peace of mind.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-6 col-md-6 feature-col mt-30">
-                            <div class="xb-feature top-border pos-rel">
-                                <div class="xb-item--holder text-center">
-                                    <div class="xb-item--img">
-                                        <img src="assets/img/feature/feature-icon2.png" alt="">
-                                    </div>
-                                    <h2 class="xb-item--title">Create Account</h2>
-                                    <p class="xb-item--content">Get started in seconds. Sign up for your account
-                                        effortlessly with us today.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-6 col-md-6 feature-col mt-30">
-                            <div class="xb-feature pos-rel">
-                                <div class="xb-item--holder text-center">
-                                    <div class="xb-item--img">
-                                        <img src="assets/img/feature/feature-icon3.png" alt="">
-                                    </div>
-                                    <h2 class="xb-item--title">Register</h2>
-                                    <p class="xb-item--content">Begin your journey swiftly. Sign up now and access
-                                        limitless with ease.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-6 col-md-6 feature-col mt-30">
-                            <div class="xb-feature top-border pos-rel">
-                                <div class="xb-item--holder text-center">
-                                    <div class="xb-item--img">
-                                        <img src="assets/img/feature/feature-icon1.png" alt="">
-                                    </div>
-                                    <h2 class="xb-item--title">Start Trading</h2>
-                                    <p class="xb-item--content">Dive in now. Seamlessly begin your trading journey with
-                                        us endless possibilities.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="xb-feature-shape">
-                    <div class="shape shape--1">
-                        <img src="assets/img/shape/h_shape3.png" alt="">
-                    </div>
-                    <div class="shape shape--2">
-                        <img data-parallax='{"y":-70}' src="assets/img/shape/f_line_shape.png" alt="">
-                    </div>
-                </div>
-            </section> -->
-            <!-- feature section end -->
-
             <!-- Request Email and Wallet Address Section Start -->
             <section class="request-info z-1 pos-rel pt-110">
                 <div class="container">
                     <div class="section-title pb-55 text-center">
                         <h1 class="title">Join the Airdrop</h1>
-                        <p>Enter your email and wallet address to participate in the Greenwood AI airdrop and unlock
-                            your crypto rewards.</p>
+                        <p>Enter your email and wallet address to participate in the Greenwood AI airdrop and unlock your crypto rewards.</p>
                     </div>
                     <div class="row justify-content-center">
                         <div class="col-lg-6 col-md-8">
                             <form id="airdrop-form" class="airdrop-form">
                                 <div class="form-group mb-20">
                                     <label for="email" class="form-label">Email Address</label>
-                                    <input type="email" id="email" name="email" class="form-control"
-                                        placeholder="Enter your email address" required>
+                                    <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email address" required>
                                 </div>
                                 <div class="form-group mb-20">
                                     <label for="wallet" class="form-label">Wallet Address</label>
-                                    <input type="text" id="wallet" name="wallet" class="form-control"
-                                        placeholder="Enter your wallet address" required>
+                                    <input type="text" id="wallet" name="wallet" class="form-control" placeholder="Enter your wallet address" required>
                                 </div>
                                 <div class="form-group text-center">
                                     <button type="submit" class="btn btn-primary">Submit</button>
@@ -411,14 +308,11 @@
                             </form>
                         </div>
                     </div>
-                    <!-- Display Waitlist Position -->
+                    <!-- Waitlist Info -->
                     <div id="waitlist-info" class="text-center" style="display: none; margin-top: 20px;">
                         <h3>Your Waitlist Position: <span id="position"></span></h3>
                         <p>Total Participants: <span id="total"></span></p>
                         <p>Your Referral Code: <strong id="referral-code"></strong></p>
-                        <div>
-                            <button class="btn btn-secondary" id="share-btn">Share on Social Media</button>
-                        </div>
                     </div>
                 </div>
             </section>
@@ -433,80 +327,6 @@
                         <img src="assets/img/feature/fea-shape-01.png" alt="">
                         <img src="assets/img/feature/fea-shape-01.png" alt="">
                     </div>
-                    <!-- <div class="container">
-                        <div class="section-title pb-55 text-center">
-                            <h1 class="title">The best crypto features you won't find anywhere else</h1>
-                        </div>
-                        <div class="row align-items-start">
-                            <div class="col-lg-7 ">
-                                <div class="feature-left-inner">
-                                    <div class="row">
-                                        <div class="col-lg-12 mb-30">
-                                            <div class="xb-freatue-crypto bg_img ul_li "
-                                                data-background="assets/img/feature/feature-col-bg.svg">
-                                                <div class="xb-item--holder">
-                                                    <h2 class="xb-item--title">Decentralized Identity Verification</h2>
-                                                    <p class="xb-item--content">
-                                                        Decentralized Identity Verification offers a secure and
-                                                        transparent solution for authenticating identities without
-                                                        relying.
-                                                    </p>
-                                                </div>
-                                                <div class="xb-item--img col-img">
-                                                    <img src="assets/img/feature/feature-col-item.png" alt="">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-12 mb-30">
-                                            <div class="xb-freatue-crypto bg_img ul_li"
-                                                data-background="assets/img/feature/feature-col-bg1.svg">
-                                                <div class="xb-item--holder">
-                                                    <h2 class="xb-item--title">Instant Deposits and Withdrawals</h2>
-                                                    <p class="xb-item--content">
-                                                        Instant Deposits and Withdrawals: Trade swiftly with immediate
-                                                        access to your funds. No waiting, just seamless transactions.
-                                                    </p>
-                                                </div>
-                                                <div class="xb-item--img">
-                                                    <img src="assets/img/feature/feature-col-item1.png" alt="">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-5 mb-30">
-                                <div class="feature-right-inner">
-                                    <div class="xb-crypto-right bg_img ul_li"
-                                        data-background="assets/img/feature/feature-col-bg2.svg">
-                                        <div class="xb-item--img">
-                                            <img src="assets/img/feature/feature-col-item2.png" alt="">
-                                        </div>
-                                        <div class="xb-item--holder">
-                                            <h2 class="xb-item--title">Comprehensive Asset Selection</h2>
-                                            <p class="xb-item--content">
-                                                Our platform offers a thorough and effective solution that covers all
-                                                aspects of your trading needs, ensuring a comprehensive experience.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row pb-130">
-                            <div class="col-lg-12">
-                                <div class="xb-freatue-crypto feature-bottom bg_img"
-                                    data-background="assets/img/feature/feature-col-bg3.svg">
-                                    <div class="xb-item--holder">
-                                        <h2 class="xb-item--title">Competitive Trading Fees & 24/7 Support</h2>
-                                        <p class="xb-item--content">Competitive Trading Fees & 24/7 Support: Benefit
-                                            from our competitive trading fees while enjoying round-the-clock support.
-                                            Trade efficiently and get assistance.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
                     <div class="feature-counter-wrap pt-130">
                         <div class="container">
                             <div class="row mt-none-30">
@@ -532,9 +352,9 @@
                                 <div class="col-lg-3 col-md-6 mt-30">
                                     <div class="xb-feature-inner">
                                         <div class="xb-feature-item">
-                                            <h2 class="title"><span class="xbo" data-count="30">00</span><span
+                                            <h2 class="title"><span class="xbo" data-count="100000">00</span><span
                                                     class="suffix">K+</span></h2>
-                                            <span class="sub-title">Sucessful Project</span>
+                                            <span class="sub-title">Distributed Amount</span>
                                         </div>
                                     </div>
                                 </div>
@@ -551,215 +371,6 @@
                 </div>
             </section>
             <!-- feature crypto end -->
-
-            <!-- currrency section start -->
-            <!-- <section class="currency z-1 pos-rel pt-125 pb-130">
-            <div class="container">
-                <div class="section-title pb-50 text-center">
-                    <h1 class="title">exchange any of <br> Bitcoin pairs</h1>
-                </div>
-                <div class="xb-currency">
-                    <div class="xb-item--title ul_li">
-                        <span>Name</span>
-                        <span>Price</span>
-                        <span>24h Change</span>
-                        <span>Chart</span>
-                        <span>Buy</span>
-                    </div>
-                    <ul class="xb-item--item ul_li">
-                        <li class="xb-item--curr-name d-flex align-items-center">
-                            <span class="xb-item--image"><img src="assets/img/currency/curr-icon01.png" alt=""></span>
-                            <span class="xb-item--color-white">Bitcoin</span>
-                            <span>BTC</span>
-                        </li>
-                        <li>36,201.34</li>
-                        <li>+1.71%</li>
-                        <li><img src="assets/img/currency/chart-shape01.png" alt=""></li>
-                        <li><a class="them-btn xb-item--curr-btn" href="#!">Buy Now</a></li>
-                    </ul>
-                    <ul class="xb-item--item ul_li">
-                        <li class="xb-item--curr-name d-flex align-items-center">
-                            <span class="xb-item--image img-two"><img src="assets/img/currency/curr-icon02.png" alt=""></span>
-                            <span class="xb-item--color-white">Ethereum</span>
-                            <span>ETH</span>
-                        </li>
-                        <li>$2,605.95</li>
-                        <li>+2.04%</li>
-                        <li><img src="assets/img/currency/chart-shape02.png" alt=""></li>
-                        <li><a class="them-btn xb-item--curr-btn" href="#!">Buy Now</a></li>
-                    </ul>
-                    <ul class="xb-item--item ul_li">
-                        <li class="xb-item--curr-name d-flex align-items-center">
-                            <span class="xb-item--image img-three"><img src="assets/img/currency/curr-icon03.png" alt=""></span>
-                            <span class="xb-item--color-white">Tether</span>
-                            <span>USDT</span>
-                        </li>
-                        <li>$939.20</li>
-                        <li>-0.74%</li>
-                        <li><img src="assets/img/currency/chart-shape03.png" alt=""></li>
-                        <li><a class="them-btn xb-item--curr-btn" href="#!">Buy Now</a></li>
-                    </ul>
-                    <ul class="xb-item--item ul_li">
-                        <li class="xb-item--curr-name d-flex align-items-center">
-                            <span class="xb-item--image img-four"><img src="assets/img/currency/curr-icon04.png" alt=""></span>
-                            <span class="xb-item--color-white">Ripple</span>
-                            <span>XRP</span>
-                        </li>
-                        <li>$1.02</li>
-                        <li>+1.20%</li>
-                        <li><img src="assets/img/currency/chart-shape04.png" alt=""></li>
-                        <li><a class="them-btn xb-item--curr-btn" href="#!">Buy Now</a></li>
-                    </ul>
-                    <ul class="xb-item--item ul_li">
-                        <li class="xb-item--curr-name d-flex align-items-center">
-                            <span class="xb-item--image img-five"><img src="assets/img/currency/curr-icon05.png" alt=""></span>
-                            <span class="xb-item--color-white">Chainlink</span>
-                            <span>LINK</span>
-                        </li>
-                        <li>$30.56</li>
-                        <li>-3.84%</li>
-                        <li><img src="assets/img/currency/chart-shape05.png" alt=""></li>
-                        <li><a class="them-btn xb-item--curr-btn" href="#!">Buy Now</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="currency-shape">
-                <img src="assets/img/currency/currency-shape.png" alt="">
-                <img src="assets/img/currency/currency-shape.png" alt="">
-            </div>
-        </section> -->
-            <!-- currrency section end -->
-
-            <!-- testimonial section start-->
-            <!-- <section class="testimonial pos-rel z-1">
-            <div class="testimonial-two pt-115">
-                <div class="tes-shape">
-                    <div class="shape shape--2">
-                        <img class="topToBottom2" src="assets/img/shape/tes-shape02.svg" alt="">
-                    </div>
-                    <div class="shape shape--3">
-                        <img class="topToBottom" src="assets/img/shape/tes-shape03.svg" alt="">
-                    </div>
-                    <div class="shape shape--4">
-                        <img src="assets/img/shape/it_shape1.png" alt="">
-                    </div>
-                    <div class="shape shape--5">
-                        <img src="assets/img/shape/it_shape1.png" alt="">
-                    </div>
-                </div>
-                <div class="container">
-                    <div class="section-title pb-55">
-                        <h1 class="title">what clients says</h1>
-                    </div>
-                    <div class="xb-review ul_li_between">
-                        <div class="xb-item--holder ul_li">
-                            <div class="xb-item--img">
-                                <img src="assets/img/testimonial/tes-icon01.png" alt="">
-                            </div>
-                            <div class="xb-item--review">
-                                <div class="xb-item--star">
-                                    <img src="assets/img/testimonial/review01.png" alt="">
-                                    <span>5.0</span>
-                                </div>
-                                <span>26 REVIEWS </span>
-                            </div>
-                        </div>
-                        <div class="xb-item--holder ul_li">
-                            <div class="xb-item--img">
-                                <img src="assets/img/testimonial/tes-icon02.png" alt="">
-                            </div>
-                            <div class="xb-item--review">
-                                <div class="xb-item--star">
-                                    <img src="assets/img/testimonial/review02.png" alt="">
-                                    <span>4.8</span>
-                                </div>
-                                <span>15 REVIEWS </span>
-                            </div>
-                        </div>
-                        <div class="xb-item--holder ul_li">
-                            <div class="xb-item--img">
-                                <img src="assets/img/testimonial/tes-icon03.png" alt="">
-                            </div>
-                            <div class="xb-item--review">
-                                <div class="xb-item--star">
-                                    <img src="assets/img/testimonial/review01.png" alt="">
-                                    <span>5.0</span>
-                                </div>
-                                <span>22 REVIEWS </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="xb-testimonial-wrap">
-                        <div class="xb-testimonial-slider swiper-container">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide ul_li">
-                                    <div class="xb-item--author text-center">
-                                        <div class="xb-item--avater">
-                                            <img src="assets/img/testimonial/testimonial.jpg" alt="">
-                                        </div>
-                                        <div class="xb-item--holder">
-                                            <div class="xb-item--nationality align-items-center">
-                                                <img src="assets/img/testimonial/tes-flag.png" alt="">
-                                                <span>Denmark</span>
-                                            </div>
-                                            <h3 class="xb-item--title">Reynolds Anthony</h3>
-                                            <span class="xb-item--sub-title">Cryptocurrency Trader</span>
-                                        </div>
-                                    </div>
-                                    <div class="xb-item--content">
-                                        <p>
-                                            "Since I switched to this crypto exchange, my trading experience has been nothing short of exceptional. The platform's intuitive interface combined with lightning-fast transaction speeds has significantly enhanced my ability to execute trades effectively.."
-                                        </p>
-                                        <div class="xb-item--reating ul_li">
-                                            <img src="assets/img/testimonial/tes-clint-logo.png" alt="">
-                                            <span>5.0</span>
-                                            <img src="assets/img/testimonial/review01.png" alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide ul_li">
-                                    <div class="xb-item--author text-center">
-                                        <div class="xb-item--avater">
-                                            <img src="assets/img/testimonial/testimonial.jpg" alt="">
-                                        </div>
-                                        <div class="xb-item--holder">
-                                            <div class="xb-item--nationality align-items-center">
-                                                <img src="assets/img/testimonial/tes-flag.png" alt="">
-                                                <span>Denmark</span>
-                                            </div>
-                                            <h3 class="xb-item--title">Reynolds Anthony</h3>
-                                            <span class="xb-item--sub-title">Cryptocurrency Trader</span>
-                                        </div>
-                                    </div>
-                                    <div class="xb-item--content">
-                                        <p>
-                                            "Since I switched to this crypto exchange, my trading experience has been nothing short of exceptional. The platform's intuitive interface combined with lightning-fast transaction speeds has significantly enhanced my ability to execute trades effectively.."
-                                        </p>
-                                        <div class="xb-item--reating ul_li">
-                                            <img src="assets/img/testimonial/tes-clint-logo.png" alt="">
-                                            <span>5.0</span>
-                                            <img src="assets/img/testimonial/review01.png" alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div id="integration" class="integrate mt-115">
-                    <div class="section-title pb-25">
-                        <h1 class="title">Integrated with most popular <br> crypto currencies</h1>
-                    </div>
-                    <div class="xb-integrate">
-                       <img src="assets/img/integrate/int-bg_img.png" alt="">
-                        <div class="image">
-                            <img src="assets/img/integrate/frame.png" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section> -->
-            <!-- testimonial section end-->
 
             <!-- faq start -->
             <section class="faq pos-rel mt-130 pb-5">
@@ -890,120 +501,11 @@
         <footer class="footer z-1 pos-rel">
             <div class="footer-bg bg_img" data-background="assets/img/footer/footer-bg.png"></div>
             <div class="container">
-                <!-- <div class="xb-contact-form">
-                    <div class="row g-0 mt-none-30">
-                        <div class="col-lg-7 mt-30">
-                            <div class="xb-inner">
-                                <h5 class="xb-item--sub-title"><span><img src="assets/img/footer/contact.svg"
-                                            alt=""></span> Contact Us</h5>
-                                <h2 class="xb-item--title">Do you have questions or went more information?</h2>
-                                <form class="xb-item--form" action="#!">
-                                    <div class="row">
-                                        <div class="col-lg-6">
-                                            <div class="xb-item--field">
-                                                <span><img src="assets/img/footer/contact-user.svg" alt=""></span>
-                                                <input type="text" placeholder="Steven Kevin">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <div class="xb-item--field">
-                                                <span><img src="assets/img/footer/contact-email.svg" alt=""></span>
-                                                <input type="email" placeholder="example@cryco.com">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-12">
-                                            <div class="xb-item--field">
-                                                <span><img src="assets/img/footer/contact-call.svg" alt=""></span>
-                                                <input type="text" placeholder="+91 081 0256 023">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-12 xb-item--text-msg">
-                                            <span><img src="assets/img/footer/contact-massage.svg" alt=""></span>
-                                            <textarea class="xb-item--massage" name="message" id="message" cols="30"
-                                                rows="10" placeholder="Simultaneously we had a problem..."></textarea>
-                                        </div>
-                                        <div class="col-lg-12 xb-item--contact-btn">
-                                            <button class="them-btn" type="submit">
-                                                <span class="btn_label" data-text="Send Message">Send Message</span>
-                                                <span class="btn_icon">
-                                                    <svg width="15" height="14" viewBox="0 0 15 14" fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg">
-                                                        <path
-                                                            d="M14.434 0.999999C14.434 0.447714 13.9862 -8.61581e-07 13.434 -1.11446e-06L4.43396 -3.13672e-07C3.88168 -6.50847e-07 3.43396 0.447715 3.43396 0.999999C3.43396 1.55228 3.88168 2 4.43396 2L12.434 2L12.434 10C12.434 10.5523 12.8817 11 13.434 11C13.9862 11 14.434 10.5523 14.434 10L14.434 0.999999ZM2.14107 13.7071L14.1411 1.70711L12.7269 0.292893L0.726853 12.2929L2.14107 13.7071Z"
-                                                            fill="white"></path>
-                                                    </svg>
-                                                </span>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                        <div class="col-lg-5 mt-30">
-                            <div class="footer-apps">
-                                <div class="xb-item--img pos-rel">
-                                    <img src="assets/img/footer/footer-phn.png" alt="">
-                                    <div class="xb-item--shadow">
-                                        <img src="assets/img/footer/foote-app-shadow.png" alt="">
-                                    </div>
-                                </div>
-                                <div class="xb-item--holder text-center">
-                                    <h2 class="xb-item--title">Download and enjoy the experience</h2>
-                                    <p class="xb-item--content">Don't miss out! Download now for seamless
-                                        functionalities and endless possibilities.</p>
-                                    <div class="xb-item--button">
-                                        <a class="them-btn apps-btn" href="#!">
-                                            <span class="btn_icon">
-                                                <i class="fab fa-apple"></i>
-                                            </span>
-                                            <span class="btn_label" data-text="Apple iOS">Apple iOS</span>
-                                        </a>
-                                        <a class="them-btn apps-btn" href="#!">
-                                            <span class="btn_icon"><svg width="21" height="14" viewBox="0 0 21 14"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path fill-rule="evenodd" clip-rule="evenodd"
-                                                        d="M0.398804 12.1266C0.537847 10.5267 1.04394 9.05395 1.91712 7.70827C2.78967 6.3626 3.95204 5.29345 5.40423 4.50098L3.68942 1.63014C3.59672 1.49556 3.57354 1.35352 3.61989 1.204C3.66624 1.05447 3.76666 0.942338 3.92114 0.867577C4.04473 0.792815 4.18378 0.777861 4.33826 0.822713C4.49276 0.867577 4.61635 0.957281 4.70904 1.09186L6.42386 3.96269C7.75246 3.42441 9.14288 3.15528 10.5951 3.15528C12.0472 3.15528 13.4377 3.42441 14.7662 3.96269L16.4811 1.09186C16.5738 0.957281 16.6974 0.867577 16.8518 0.822713C17.0063 0.777861 17.1454 0.792815 17.269 0.867577C17.4235 0.942338 17.5239 1.05447 17.5702 1.204C17.6165 1.35352 17.5934 1.49556 17.5007 1.63014L15.7859 4.50098C17.238 5.29345 18.4007 6.3626 19.2739 7.70827C20.1464 9.05395 20.6523 10.5267 20.7913 12.1266V13.826H0.398804V12.1266ZM6.78336 9.3339C6.55904 9.55096 6.28467 9.6595 5.96025 9.6595C5.63581 9.6595 5.36175 9.55096 5.13805 9.3339C4.91374 9.1174 4.80158 8.85207 4.80158 8.53814C4.80158 8.22409 4.91374 7.95888 5.13805 7.74238C5.36175 7.5252 5.63581 7.41666 5.96025 7.41666C6.28467 7.41666 6.55904 7.5252 6.78336 7.74238C7.00706 7.95888 7.11891 8.22409 7.11891 8.53814C7.11891 8.85207 7.00706 9.1174 6.78336 9.3339ZM16.0527 9.3339C15.8283 9.55096 15.5539 9.6595 15.2296 9.6595C14.9051 9.6595 14.6311 9.55096 14.4074 9.3339C14.1831 9.1174 14.071 8.85207 14.071 8.53814C14.071 8.22409 14.1831 7.95888 14.4074 7.74238C14.6311 7.5252 14.9051 7.41666 15.2296 7.41666C15.5539 7.41666 15.8283 7.5252 16.0527 7.74238C16.2764 7.95888 16.3882 8.22409 16.3882 8.53814C16.3882 8.85207 16.2764 9.1174 16.0527 9.3339Z"
-                                                        fill="#080B18"></path>
-                                                </svg></span>
-                                            <span class="btn_label" data-text="Android">Android</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
+
             </div>
             <div class="container pt-65">
                 <div class="xb-footer">
-                    <!-- <div class="xb-contact_info ul_li_between pb-50">
-                        <div class="contact-method">
-                            <span><img src="assets/img/footer/footer-msg-icon.png" alt=""></span>
-                            contact@cryco.com
-                        </div>
-                        <div class="contact-method">
-                            <span><img src="assets/img/footer/footer-call-icon.png" alt=""></span>
-                            +(1) 1230 452 8597
-                        </div>
-                        <div class="contact-method">
-                            <span><img src="assets/img/footer/footer-loc-icon.png" alt=""></span>
-                            Waterloo, Park, Australia
-                        </div>
-                    </div>
-                    <div class="xb-footer-widget ul_li_between">
-                        <ul class="xb-item--footer_nav ul_li">
-                            <li><a href="#!">Home</a></li>
-                            <li><a href="#!">Features</a></li>
-                            <li><a href="#!">Integration</a></li>
-                            <li><a href="#!">Blog</a></li>
-                            <li><a href="#!">Contact</a></li>
-                        </ul>
-                        <div class="xb-item--footer_eamil">
-                            <span><img src="assets/img/footer/sms-tracking.png" alt=""></span>
-                            <input type="email" placeholder="Enter your email">
-                            <button>Subscribe</button>
-                        </div>
-                    </div> -->
+
                     <div class="footer-copyright ul_li_between pt-40 pb-40">
                         Copyright © 2025 GreenWordAI. All rights reserved.
                         <ul class="footer-link ul_li">
@@ -1049,6 +551,67 @@
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 
     <script>
+        $(document).ready(function() {
+            $('#airdrop-form').on('submit', function(e) {
+                e.preventDefault();
+
+                const email = $('#email').val();
+                const wallet = $('#wallet').val();
+
+                // Submit data to PHP
+                $.ajax({
+                    type: 'POST',
+                    url: 'submit_airdrop.php',
+                    data: {
+                        email,
+                        wallet
+                    },
+                    success: function(response) {
+                        const res = JSON.parse(response);
+
+                        if (res.status === 'success') {
+                            // Success Toast
+                            Toastify({
+                                text: res.message,
+                                duration: 5000, // 5 seconds
+                                close: true,
+                                gravity: "top", // Position: top or bottom
+                                position: "right", // Position: left, center, right
+                                backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
+                            }).showToast();
+
+                            // Update position and referral code in UI
+                            $('#position').text(res.position);
+                            $('#total').text(3000 + parseInt(res.position));
+                            $('#referral-code').text(res.referral_code);
+                            $('#waitlist-info').show();
+                        } else {
+                            // Error Toast
+                            Toastify({
+                                text: res.message,
+                                duration: 5000, // 5 seconds
+                                close: true,
+                                gravity: "top", // Position: top or bottom
+                                position: "right", // Position: left, center, right
+                                backgroundColor: "linear-gradient(to right, #FF4B2B, #FF416C)",
+                            }).showToast();
+                        }
+                    },
+                    error: function() {
+                        // Error Toast for AJAX failure
+                        Toastify({
+                            text: 'Something went wrong. Please try again.',
+                            duration: 5000, // 5 seconds
+                            close: true,
+                            gravity: "top", // Position: top or bottom
+                            position: "right", // Position: left, center, right
+                            backgroundColor: "linear-gradient(to right, #FF4B2B, #FF416C)",
+                        }).showToast();
+                    }
+                });
+            });
+        });
+
         // Waitlist data is stored in localStorage
         const START_COUNT = 3000; // Starting number for participants
         let currentPosition = parseInt(localStorage.getItem('lastPosition')) || START_COUNT;
