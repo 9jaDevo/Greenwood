@@ -28,7 +28,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bind_param("sssi", $email, $wallet, $referralCode, $position);
 
     if ($stmt->execute()) {
-        echo json_encode(["status" => "success", "message" => "Submission successful!", "position" => $position, "referral_code" => $referralCode]);
+        // Query to get the total number of participants/submissions
+        $totalResult = $conn->query("SELECT COUNT(*) AS total FROM submissions");
+        $total = $totalResult->fetch_assoc()['total'];
+
+        // Return success response along with position, referral code, and total participants
+        echo json_encode([
+            "status" => "success",
+            "message" => "Submission successful!",
+            "position" => $position,
+            "referral_code" => $referralCode,
+            "total" => $total
+        ]);
     } else {
         echo json_encode(["status" => "error", "message" => "Something went wrong. Please try again."]);
     }

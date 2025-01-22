@@ -308,6 +308,7 @@ include('header.php');
                             </form>
                         </div>
                     </div>
+
                     <!-- Waitlist Info -->
                     <div id="waitlist-info" class="text-center" style="display: none; margin-top: 20px;">
                         <h3>Your Waitlist Position: <span id="position"></span></h3>
@@ -552,139 +553,115 @@ include('header.php');
 
     <script>
         $(document).ready(function() {
-            $('#airdrop-form').on('submit', function(e) {
-                e.preventDefault();
+                    // Handle the form submission
+                    $('#airdrop-form').submit(function(e) {
+                        e.preventDefault(); // Prevent the form from submitting the traditional way
 
-                const email = $('#email').val();
-                const wallet = $('#wallet').val();
+                        var email = $('#email').val();
+                        var wallet = $('#wallet').val();
 
-                // Submit data to PHP
-                $.ajax({
-                    type: 'POST',
-                    url: 'submit_airdrop.php',
-                    data: {
-                        email,
-                        wallet
-                    },
-                    success: function(response) {
-                        const res = JSON.parse(response);
+                        // Prepare the data to send
+                        var formData = {
+                            email: email,
+                            wallet: wallet
+                        };
 
-                        if (res.status === 'success') {
-                            // Success Toast
-                            Toastify({
-                                text: res.message,
-                                duration: 5000, // 5 seconds
-                                close: true,
-                                gravity: "top", // Position: top or bottom
-                                position: "right", // Position: left, center, right
-                                backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
-                            }).showToast();
+                        // Perform the AJAX request
+                        $.ajax({
+                            url: 'submit_airdrop.php', // Path to your PHP script
+                            type: 'POST',
+                            data: formData,
+                            dataType: 'json',
+                            success: function(response) {
+                                // Handle success
+                                if (response.status === 'success') {
+                                    $('#waitlist-info').show(); // Show the waitlist info section
+                                    $('#position').text(response.position);
+                                    $('#referral-code').text(response.referral_code);
+                                    $('#total').text(response.total); // Assuming `total` is included in the response
+                                } else {
+                                    alert(response.message); // Show error message
+                                }
+                            },
+                            error: function() {
+                                alert('An error occurred. Please try again.');
+                            }
+                        });
+                    });
 
-                            // Update position and referral code in UI
-                            $('#position').text(res.position);
-                            $('#total').text(3000 + parseInt(res.position));
-                            $('#referral-code').text(res.referral_code);
-                            $('#waitlist-info').show();
-                        } else {
-                            // Error Toast
-                            Toastify({
-                                text: res.message,
-                                duration: 5000, // 5 seconds
-                                close: true,
-                                gravity: "top", // Position: top or bottom
-                                position: "right", // Position: left, center, right
-                                backgroundColor: "linear-gradient(to right, #FF4B2B, #FF416C)",
-                            }).showToast();
-                        }
-                    },
-                    error: function() {
-                        // Error Toast for AJAX failure
-                        Toastify({
-                            text: 'Something went wrong. Please try again.',
-                            duration: 5000, // 5 seconds
-                            close: true,
-                            gravity: "top", // Position: top or bottom
-                            position: "right", // Position: left, center, right
-                            backgroundColor: "linear-gradient(to right, #FF4B2B, #FF416C)",
-                        }).showToast();
-                    }
-                });
-            });
-        });
+                    // Waitlist data is stored in localStorage
+                    const START_COUNT = 3000; // Starting number for participants
+                    let currentPosition = parseInt(localStorage.getItem('lastPosition')) || START_COUNT;
 
-        // Waitlist data is stored in localStorage
-        const START_COUNT = 3000; // Starting number for participants
-        let currentPosition = parseInt(localStorage.getItem('lastPosition')) || START_COUNT;
+                    document.getElementById('airdrop-form').addEventListener('submit', function(e) {
+                        e.preventDefault();
 
-        document.getElementById('airdrop-form').addEventListener('submit', function(e) {
-            e.preventDefault();
+                        const email = document.getElementById('email').value;
+                        const wallet = document.getElementById('wallet').value;
 
-            const email = document.getElementById('email').value;
-            const wallet = document.getElementById('wallet').value;
+                        // Increment position with a random number between 1 and 10
+                        const increment = Math.floor(Math.random() * 10) + 1;
+                        currentPosition += increment;
 
-            // Increment position with a random number between 1 and 10
-            const increment = Math.floor(Math.random() * 10) + 1;
-            currentPosition += increment;
+                        // Generate referral code
+                        const referralCode = `REF-${Math.random().toString(36).substr(2, 8).toUpperCase()}`;
 
-            // Generate referral code
-            const referralCode = `REF-${Math.random().toString(36).substr(2, 8).toUpperCase()}`;
+                        // Save data to localStorage
+                        const participants = JSON.parse(localStorage.getItem('participants')) || [];
+                        participants.push({
+                            email,
+                            wallet,
+                            position: currentPosition,
+                            referralCode
+                        });
+                        localStorage.setItem('participants', JSON.stringify(participants));
+                        localStorage.setItem('lastPosition', currentPosition);
 
-            // Save data to localStorage
-            const participants = JSON.parse(localStorage.getItem('participants')) || [];
-            participants.push({
-                email,
-                wallet,
-                position: currentPosition,
-                referralCode
-            });
-            localStorage.setItem('participants', JSON.stringify(participants));
-            localStorage.setItem('lastPosition', currentPosition);
+                        // Display the waitlist info
+                        document.getElementById('position').textContent = currentPosition;
+                        document.getElementById('total').textContent = currentPosition;
+                        document.getElementById('referral-code').textContent = referralCode;
+                        document.getElementById('waitlist-info').style.display = 'block';
 
-            // Display the waitlist info
-            document.getElementById('position').textContent = currentPosition;
-            document.getElementById('total').textContent = currentPosition;
-            document.getElementById('referral-code').textContent = referralCode;
-            document.getElementById('waitlist-info').style.display = 'block';
+                        // Show success toast
+                        alert('Successfully joined the airdrop!');
 
-            // Show success toast
-            alert('Successfully joined the airdrop!');
+                        // Reload the page after 2 seconds
+                        setTimeout(function() {
+                            location.reload();
+                        }, 2000);
+                    });
 
-            // Reload the page after 2 seconds
-            setTimeout(function() {
-                location.reload();
-            }, 2000);
-        });
+                    // Share button functionality
+                    document.getElementById('share-btn').addEventListener('click', function() {
+                        const referralCode = document.getElementById('referral-code').textContent;
+                        const shareText = `Join the Greenwood AI airdrop and claim your rewards! Use my referral code: ${referralCode}`;
 
-        // Share button functionality
-        document.getElementById('share-btn').addEventListener('click', function() {
-            const referralCode = document.getElementById('referral-code').textContent;
-            const shareText = `Join the Greenwood AI airdrop and claim your rewards! Use my referral code: ${referralCode}`;
+                        // Set up social media links
+                        const url = window.location.href;
+                        const shareUrl = `${url}?referral=${referralCode}`;
 
-            // Set up social media links
-            const url = window.location.href;
-            const shareUrl = `${url}?referral=${referralCode}`;
+                        // Facebook
+                        document.getElementById('facebook-share').href = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`;
 
-            // Facebook
-            document.getElementById('facebook-share').href = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`;
+                        // Twitter
+                        document.getElementById('twitter-share').href = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}`;
 
-            // Twitter
-            document.getElementById('twitter-share').href = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}`;
+                        // WhatsApp
+                        document.getElementById('whatsapp-share').href = `https://wa.me/?text=${encodeURIComponent(shareText)} ${encodeURIComponent(shareUrl)}`;
 
-            // WhatsApp
-            document.getElementById('whatsapp-share').href = `https://wa.me/?text=${encodeURIComponent(shareText)} ${encodeURIComponent(shareUrl)}`;
+                        // Show share icons
+                        document.getElementById('share-icons').style.display = 'block';
+                    });
 
-            // Show share icons
-            document.getElementById('share-icons').style.display = 'block';
-        });
-
-        // Copy link functionality
-        document.getElementById('copy-link').addEventListener('click', function() {
-            const referralCode = document.getElementById('referral-code').textContent;
-            const shareUrl = `${window.location.href}?referral=${referralCode}`;
-            navigator.clipboard.writeText(shareUrl).then(function() {
-                alert('Referral link copied to clipboard!');
-            });
-        });
+                    // Copy link functionality
+                    document.getElementById('copy-link').addEventListener('click', function() {
+                        const referralCode = document.getElementById('referral-code').textContent;
+                        const shareUrl = `${window.location.href}?referral=${referralCode}`;
+                        navigator.clipboard.writeText(shareUrl).then(function() {
+                            alert('Referral link copied to clipboard!');
+                        });
+                    });
     </script>
 
 
