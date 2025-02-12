@@ -714,7 +714,7 @@
 
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 
-    <script>
+    <!-- <script>
         // Waitlist data is stored in localStorage
         const START_COUNT = 3000; // Starting number for participants
         let currentPosition = parseInt(localStorage.getItem('lastPosition')) || START_COUNT;
@@ -788,7 +788,7 @@
                 alert('Referral link copied to clipboard!');
             });
         });
-    </script>
+    </script> -->
 
 
     <!-- jquery include -->
