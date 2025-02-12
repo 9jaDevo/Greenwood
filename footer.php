@@ -75,9 +75,9 @@
     });
 
     // Scroll to the notification area after form submission
-    if (document.querySelector('.alert')) {
+    if (document.querySelector('.request-info')) {
         window.scrollTo({
-            top: document.querySelector('.alert').offsetTop,
+            top: document.querySelector('.request-info').offsetTop,
             behavior: 'smooth'
         });
     }

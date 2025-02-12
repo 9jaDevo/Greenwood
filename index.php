@@ -293,6 +293,7 @@ include('header.php');
             </section>
             <!-- partners section end  -->
 
+
             <!-- Request Email and Wallet Address Section Start -->
             <section class="request-info z-1 pos-rel pt-110">
                 <div class="container">
@@ -349,7 +350,7 @@ include('header.php');
             </section>
             <!-- Request Email and Wallet Address Section End -->
 
-            <!-- feature crypto start -->
+            <!-- Advert -->
             <section id="features" class="feature pos-rel z-1 mt-130">
                 <div class="feature-crypto-wrap pt-125 pb-120">
                     <div class="fea-shape">
@@ -358,37 +359,7 @@ include('header.php');
                     </div>
                     <div class="feature-counter-wrap pt-130">
                         <div class="container">
-                            <div class="row mt-none-30">
-                                <!-- Total Participants Box -->
-                                <div class="col-lg-4 col-md-6 mt-30">
-                                    <div class="xb-feature-inner">
-                                        <div class="xb-feature-item">
-                                            <h2 class="title"><span class="xbo" data-count="<?= $totalParticipants ?>">00</span><span class="suffix">K+</span></h2>
-                                            <span class="sub-title">Total Participants</span>
-                                        </div>
-                                    </div>
-                                </div>
 
-                                <!-- Amount to be Distributed Box -->
-                                <div class="col-lg-4 col-md-6 mt-30">
-                                    <div class="xb-feature-inner">
-                                        <div class="xb-feature-item">
-                                            <h2 class="title"><span class="xbo" data-count="100">00</span><span class="suffix">K+</span></h2>
-                                            <span class="sub-title">Amount to be Distributed</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Total Airdrop Fund (Static Value) Box -->
-                                <div class="col-lg-4 col-md-6 mt-30">
-                                    <div class="xb-feature-inner">
-                                        <div class="xb-feature-item">
-                                            <h2 class="title"><span class="xbo" data-count="10">10</span><span class="suffix">M Tokens</span></h2>
-                                            <span class="sub-title">Total Airdrop Fund</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
