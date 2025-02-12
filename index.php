@@ -345,37 +345,33 @@ include('header.php');
                     <div class="feature-counter-wrap pt-130">
                         <div class="container">
                             <div class="row mt-none-30">
-                                <div class="col-lg-3 col-md-6 mt-30">
+                                <!-- Total Participants Box -->
+                                <div class="col-lg-4 col-md-6 mt-30">
                                     <div class="xb-feature-inner">
                                         <div class="xb-feature-item">
-                                            <h2 class="title"><span class="xbo" data-count="">00</span><span class="suffix">K+</span></h2>
-                                            <span class="sub-title">Your Waitlist Position</span>
-                                        </div>
-                                        <span class="line"></span>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-md-6 mt-30">
-                                    <div class="xb-feature-inner">
-                                        <div class="xb-feature-item">
-                                            <h2 class="title"><span class="xbo" data-count="">00</span><span class="suffix">%</span></h2>
+                                            <h2 class="title"><span class="xbo" data-count="<?= $totalParticipants ?>">00</span><span class="suffix">K+</span></h2>
                                             <span class="sub-title">Total Participants</span>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-3 col-md-6 mt-30">
+
+                                <!-- Amount to be Distributed Box -->
+                                <div class="col-lg-4 col-md-6 mt-30">
                                     <div class="xb-feature-inner">
                                         <div class="xb-feature-item">
-                                            <h2 class="title"><span class="xbo" data-count="">00</span><span
-                                                    class="suffix">K+</span></h2>
-                                            <span class="sub-title">Distributed Amount</span>
+                                            <h2 class="title"><span class="xbo" data-count="100">00</span><span class="suffix">K+</span></h2>
+                                            <span class="sub-title">Amount to be Distributed</span>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-3 col-md-6 mt-30">
-                                    <div class="xb-feature-item">
-                                        <h2 class="title"><span class="xbo" data-count="">00</span><span
-                                                class="suffix">%</span></h2>
-                                        <span class="sub-title">Security Certification</span>
+
+                                <!-- Total Airdrop Fund (Static Value) Box -->
+                                <div class="col-lg-4 col-md-6 mt-30">
+                                    <div class="xb-feature-inner">
+                                        <div class="xb-feature-item">
+                                            <h2 class="title"><span class="xbo" data-count="10">10</span><span class="suffix">M Tokens</span></h2>
+                                            <span class="sub-title">Total Airdrop Fund</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -384,6 +380,7 @@ include('header.php');
                 </div>
             </section>
             <!-- feature crypto end -->
+
 
             <!-- faq start -->
             <section class="faq pos-rel mt-130 pb-5">
