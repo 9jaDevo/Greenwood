@@ -334,7 +334,7 @@ include('header.php');
                                 <div class="col-lg-3 col-md-6 mt-30">
                                     <div class="xb-feature-inner">
                                         <div class="xb-feature-item">
-                                            <h2 class="title"><span class="xbo" data-count="280">00</span><span class="suffix">K+</span></h2>
+                                            <h2 class="title"><span class="xbo" data-count="">00</span><span class="suffix">K+</span></h2>
                                             <span class="sub-title">Your Waitlist Position</span>
                                         </div>
                                         <span class="line"></span>
@@ -343,7 +343,7 @@ include('header.php');
                                 <div class="col-lg-3 col-md-6 mt-30">
                                     <div class="xb-feature-inner">
                                         <div class="xb-feature-item">
-                                            <h2 class="title"><span class="xbo" data-count="99">00</span><span class="suffix">%</span></h2>
+                                            <h2 class="title"><span class="xbo" data-count="">00</span><span class="suffix">%</span></h2>
                                             <span class="sub-title">Total Participants</span>
                                         </div>
                                     </div>
@@ -351,7 +351,7 @@ include('header.php');
                                 <div class="col-lg-3 col-md-6 mt-30">
                                     <div class="xb-feature-inner">
                                         <div class="xb-feature-item">
-                                            <h2 class="title"><span class="xbo" data-count="100000">00</span><span
+                                            <h2 class="title"><span class="xbo" data-count="">00</span><span
                                                     class="suffix">K+</span></h2>
                                             <span class="sub-title">Distributed Amount</span>
                                         </div>
@@ -359,7 +359,7 @@ include('header.php');
                                 </div>
                                 <div class="col-lg-3 col-md-6 mt-30">
                                     <div class="xb-feature-item">
-                                        <h2 class="title"><span class="xbo" data-count="100">00</span><span
+                                        <h2 class="title"><span class="xbo" data-count="">00</span><span
                                                 class="suffix">%</span></h2>
                                         <span class="sub-title">Security Certification</span>
                                     </div>
