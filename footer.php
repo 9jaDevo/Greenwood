@@ -37,38 +37,3 @@
 <!-- Keep this for your custom scripts -->
 <!-- JavaScript for Copy, Share, and Toast Notification -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-    // Show Toast Notification (Custom Toasts on Top-Left)
-    function showToast(message) {
-        const toastBody = document.getElementById('toast-body');
-        toastBody.textContent = message;
-
-        const toast = new bootstrap.Toast(document.getElementById('toast-notification'));
-        toast.show();
-    }
-
-    // Share Referral Link on Social Media
-    document.getElementById('share-referral-link').addEventListener('click', function() {
-        const referralCode = document.getElementById('referral-link').textContent;
-        const shareText = `Join the Greenwood AI airdrop and claim your rewards! Use my referral code: ${referralCode}`;
-
-        const shareUrl = `${window.location.href}?referral=${referralCode}`;
-
-        // Facebook
-        window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`, '_blank');
-
-        // Twitter
-        window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}`, '_blank');
-
-        // WhatsApp
-        window.open(`https://wa.me/?text=${encodeURIComponent(shareText)} ${encodeURIComponent(shareUrl)}`, '_blank');
-    });
-
-    // Scroll to the notification area after form submission
-    if (document.querySelector('.request-info')) {
-        window.scrollTo({
-            top: document.querySelector('.request-info').offsetTop,
-            behavior: 'smooth'
-        });
-    }
-</script>
