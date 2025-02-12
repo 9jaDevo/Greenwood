@@ -361,20 +361,9 @@
             <section class="request-info z-1 pos-rel pt-110">
                 <div class="container">
                     <div class="section-title pb-55 text-center" id="form">
-                        <!-- Display Success/Error Message from Session -->
-                        <?php if (isset($_SESSION['status']) && isset($_SESSION['message'])): ?>
-                            <div class="alert alert-<?= $_SESSION['status'] == 'success' ? 'success' : 'danger'; ?> alert-dismissible fade show"
-                                role="alert">
-                                <strong>
-                                    <?= ucfirst($_SESSION['status']); ?>!
-                                </strong>
-                                <?= $_SESSION['message']; ?>
-                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                            </div>
-
-                            <h1 class="title">Join the Airdrop</h1>
-                            <p>Enter your email and wallet address to participate in the Greenwood AI airdrop and unlock
-                                your crypto rewards.</p>
+                        <h1 class="title">Join the Airdrop</h1>
+                        <p>Enter your email and wallet address to participate in the Greenwood AI airdrop and unlock
+                            your crypto rewards.</p>
                     </div>
                     <div class="row justify-content-center">
                         <div class="col-lg-6 col-md-8">
@@ -396,40 +385,49 @@
                         </div>
                     </div>
 
-
-
-                    <?php if ($_SESSION['status'] == 'success'): ?>
-                        <div class="text-center mt-3">
-                            <p>Your Waitlist Position: <strong>
-                                    <?= $_SESSION['position']; ?>
-                                </strong></p>
-                            <p>Total Participants: <strong>
-                                    <?= $_SESSION['total']; ?>
-                                </strong></p>
-                            <p>Your Referral Code: <strong>
-                                    <?= $_SESSION['referral_code']; ?>
-                                </strong></p>
+                    <!-- Display Success/Error Message from Session -->
+                    <?php if (isset($_SESSION['status']) && isset($_SESSION['message'])): ?>
+                        <div class="alert alert-<?= $_SESSION['status'] == 'success' ? 'success' : 'danger'; ?> alert-dismissible fade show"
+                            role="alert">
+                            <strong>
+                                <?= ucfirst($_SESSION['status']); ?>!
+                            </strong>
+                            <?= $_SESSION['message']; ?>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
 
-                        <!-- Referral Link Section -->
-                        <div id="referral-link-container" class="text-center" style="margin-top: 20px;">
-                            <p><strong>Your Referral Code: </strong><span id="referral-link">
-                                    <?= $referral_code; ?>
-                                </span></p>
-                            <button class="btn btn-primary" id="copy-referral-link">Copy Referral Link</button>
-                            <button class="btn btn-info" id="share-referral-link">Share Referral Link</button>
-                        </div>
+                        <?php if ($_SESSION['status'] == 'success'): ?>
+                            <div class="text-center mt-3">
+                                <p>Your Waitlist Position: <strong>
+                                        <?= $_SESSION['position']; ?>
+                                    </strong></p>
+                                <p>Total Participants: <strong>
+                                        <?= $_SESSION['total']; ?>
+                                    </strong></p>
+                                <p>Your Referral Code: <strong>
+                                        <?= $_SESSION['referral_code']; ?>
+                                    </strong></p>
+                            </div>
+
+                            <!-- Referral Link Section -->
+                            <div id="referral-link-container" class="text-center" style="margin-top: 20px;">
+                                <p><strong>Your Referral Code: </strong><span id="referral-link">
+                                        <?= $referral_code; ?>
+                                    </span></p>
+                                <button class="btn btn-primary" id="copy-referral-link">Copy Referral Link</button>
+                                <button class="btn btn-info" id="share-referral-link">Share Referral Link</button>
+                            </div>
+                        <?php endif; ?>
+
+                        <!-- Clear session data after showing the message to avoid it showing again after page reload -->
+                        <?php
+                        unset($_SESSION['status']);
+                        unset($_SESSION['message']);
+                        unset($_SESSION['position']);
+                        unset($_SESSION['referral_code']);
+                        unset($_SESSION['total']);
+                        ?>
                     <?php endif; ?>
-
-                    <!-- Clear session data after showing the message to avoid it showing again after page reload -->
-                    <?php
-                            unset($_SESSION['status']);
-                            unset($_SESSION['message']);
-                            unset($_SESSION['position']);
-                            unset($_SESSION['referral_code']);
-                            unset($_SESSION['total']);
-                    ?>
-                <?php endif; ?>
 
                 </div>
             </section>
@@ -452,214 +450,7 @@
             </section>
             <!-- feature crypto end -->
 
-            <!-- currrency section start -->
-            <!-- <section class="currency z-1 pos-rel pt-125 pb-130">
-            <div class="container">
-                <div class="section-title pb-50 text-center">
-                    <h1 class="title">exchange any of <br> Bitcoin pairs</h1>
-                </div>
-                <div class="xb-currency">
-                    <div class="xb-item--title ul_li">
-                        <span>Name</span>
-                        <span>Price</span>
-                        <span>24h Change</span>
-                        <span>Chart</span>
-                        <span>Buy</span>
-                    </div>
-                    <ul class="xb-item--item ul_li">
-                        <li class="xb-item--curr-name d-flex align-items-center">
-                            <span class="xb-item--image"><img src="assets/img/currency/curr-icon01.png" alt=""></span>
-                            <span class="xb-item--color-white">Bitcoin</span>
-                            <span>BTC</span>
-                        </li>
-                        <li>36,201.34</li>
-                        <li>+1.71%</li>
-                        <li><img src="assets/img/currency/chart-shape01.png" alt=""></li>
-                        <li><a class="them-btn xb-item--curr-btn" href="#!">Buy Now</a></li>
-                    </ul>
-                    <ul class="xb-item--item ul_li">
-                        <li class="xb-item--curr-name d-flex align-items-center">
-                            <span class="xb-item--image img-two"><img src="assets/img/currency/curr-icon02.png" alt=""></span>
-                            <span class="xb-item--color-white">Ethereum</span>
-                            <span>ETH</span>
-                        </li>
-                        <li>$2,605.95</li>
-                        <li>+2.04%</li>
-                        <li><img src="assets/img/currency/chart-shape02.png" alt=""></li>
-                        <li><a class="them-btn xb-item--curr-btn" href="#!">Buy Now</a></li>
-                    </ul>
-                    <ul class="xb-item--item ul_li">
-                        <li class="xb-item--curr-name d-flex align-items-center">
-                            <span class="xb-item--image img-three"><img src="assets/img/currency/curr-icon03.png" alt=""></span>
-                            <span class="xb-item--color-white">Tether</span>
-                            <span>USDT</span>
-                        </li>
-                        <li>$939.20</li>
-                        <li>-0.74%</li>
-                        <li><img src="assets/img/currency/chart-shape03.png" alt=""></li>
-                        <li><a class="them-btn xb-item--curr-btn" href="#!">Buy Now</a></li>
-                    </ul>
-                    <ul class="xb-item--item ul_li">
-                        <li class="xb-item--curr-name d-flex align-items-center">
-                            <span class="xb-item--image img-four"><img src="assets/img/currency/curr-icon04.png" alt=""></span>
-                            <span class="xb-item--color-white">Ripple</span>
-                            <span>XRP</span>
-                        </li>
-                        <li>$1.02</li>
-                        <li>+1.20%</li>
-                        <li><img src="assets/img/currency/chart-shape04.png" alt=""></li>
-                        <li><a class="them-btn xb-item--curr-btn" href="#!">Buy Now</a></li>
-                    </ul>
-                    <ul class="xb-item--item ul_li">
-                        <li class="xb-item--curr-name d-flex align-items-center">
-                            <span class="xb-item--image img-five"><img src="assets/img/currency/curr-icon05.png" alt=""></span>
-                            <span class="xb-item--color-white">Chainlink</span>
-                            <span>LINK</span>
-                        </li>
-                        <li>$30.56</li>
-                        <li>-3.84%</li>
-                        <li><img src="assets/img/currency/chart-shape05.png" alt=""></li>
-                        <li><a class="them-btn xb-item--curr-btn" href="#!">Buy Now</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="currency-shape">
-                <img src="assets/img/currency/currency-shape.png" alt="">
-                <img src="assets/img/currency/currency-shape.png" alt="">
-            </div>
-        </section> -->
-            <!-- currrency section end -->
 
-            <!-- testimonial section start-->
-            <!-- <section class="testimonial pos-rel z-1">
-            <div class="testimonial-two pt-115">
-                <div class="tes-shape">
-                    <div class="shape shape--2">
-                        <img class="topToBottom2" src="assets/img/shape/tes-shape02.svg" alt="">
-                    </div>
-                    <div class="shape shape--3">
-                        <img class="topToBottom" src="assets/img/shape/tes-shape03.svg" alt="">
-                    </div>
-                    <div class="shape shape--4">
-                        <img src="assets/img/shape/it_shape1.png" alt="">
-                    </div>
-                    <div class="shape shape--5">
-                        <img src="assets/img/shape/it_shape1.png" alt="">
-                    </div>
-                </div>
-                <div class="container">
-                    <div class="section-title pb-55">
-                        <h1 class="title">what clients says</h1>
-                    </div>
-                    <div class="xb-review ul_li_between">
-                        <div class="xb-item--holder ul_li">
-                            <div class="xb-item--img">
-                                <img src="assets/img/testimonial/tes-icon01.png" alt="">
-                            </div>
-                            <div class="xb-item--review">
-                                <div class="xb-item--star">
-                                    <img src="assets/img/testimonial/review01.png" alt="">
-                                    <span>5.0</span>
-                                </div>
-                                <span>26 REVIEWS </span>
-                            </div>
-                        </div>
-                        <div class="xb-item--holder ul_li">
-                            <div class="xb-item--img">
-                                <img src="assets/img/testimonial/tes-icon02.png" alt="">
-                            </div>
-                            <div class="xb-item--review">
-                                <div class="xb-item--star">
-                                    <img src="assets/img/testimonial/review02.png" alt="">
-                                    <span>4.8</span>
-                                </div>
-                                <span>15 REVIEWS </span>
-                            </div>
-                        </div>
-                        <div class="xb-item--holder ul_li">
-                            <div class="xb-item--img">
-                                <img src="assets/img/testimonial/tes-icon03.png" alt="">
-                            </div>
-                            <div class="xb-item--review">
-                                <div class="xb-item--star">
-                                    <img src="assets/img/testimonial/review01.png" alt="">
-                                    <span>5.0</span>
-                                </div>
-                                <span>22 REVIEWS </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="xb-testimonial-wrap">
-                        <div class="xb-testimonial-slider swiper-container">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide ul_li">
-                                    <div class="xb-item--author text-center">
-                                        <div class="xb-item--avater">
-                                            <img src="assets/img/testimonial/testimonial.jpg" alt="">
-                                        </div>
-                                        <div class="xb-item--holder">
-                                            <div class="xb-item--nationality align-items-center">
-                                                <img src="assets/img/testimonial/tes-flag.png" alt="">
-                                                <span>Denmark</span>
-                                            </div>
-                                            <h3 class="xb-item--title">Reynolds Anthony</h3>
-                                            <span class="xb-item--sub-title">Cryptocurrency Trader</span>
-                                        </div>
-                                    </div>
-                                    <div class="xb-item--content">
-                                        <p>
-                                            "Since I switched to this crypto exchange, my trading experience has been nothing short of exceptional. The platform's intuitive interface combined with lightning-fast transaction speeds has significantly enhanced my ability to execute trades effectively.."
-                                        </p>
-                                        <div class="xb-item--reating ul_li">
-                                            <img src="assets/img/testimonial/tes-clint-logo.png" alt="">
-                                            <span>5.0</span>
-                                            <img src="assets/img/testimonial/review01.png" alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide ul_li">
-                                    <div class="xb-item--author text-center">
-                                        <div class="xb-item--avater">
-                                            <img src="assets/img/testimonial/testimonial.jpg" alt="">
-                                        </div>
-                                        <div class="xb-item--holder">
-                                            <div class="xb-item--nationality align-items-center">
-                                                <img src="assets/img/testimonial/tes-flag.png" alt="">
-                                                <span>Denmark</span>
-                                            </div>
-                                            <h3 class="xb-item--title">Reynolds Anthony</h3>
-                                            <span class="xb-item--sub-title">Cryptocurrency Trader</span>
-                                        </div>
-                                    </div>
-                                    <div class="xb-item--content">
-                                        <p>
-                                            "Since I switched to this crypto exchange, my trading experience has been nothing short of exceptional. The platform's intuitive interface combined with lightning-fast transaction speeds has significantly enhanced my ability to execute trades effectively.."
-                                        </p>
-                                        <div class="xb-item--reating ul_li">
-                                            <img src="assets/img/testimonial/tes-clint-logo.png" alt="">
-                                            <span>5.0</span>
-                                            <img src="assets/img/testimonial/review01.png" alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div id="integration" class="integrate mt-115">
-                    <div class="section-title pb-25">
-                        <h1 class="title">Integrated with most popular <br> crypto currencies</h1>
-                    </div>
-                    <div class="xb-integrate">
-                       <img src="assets/img/integrate/int-bg_img.png" alt="">
-                        <div class="image">
-                            <img src="assets/img/integrate/frame.png" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section> -->
-            <!-- testimonial section end-->
 
             <!-- faq start -->
             <section class="faq pos-rel mt-130 pb-5">
