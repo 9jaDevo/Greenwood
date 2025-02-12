@@ -56,7 +56,7 @@ include('header.php');
                 <div class="container">
                     <div class="header__wrap ul_li_between">
                         <div class="header-logo">
-                            <a href="index.html"><img src="assets/img/logo/Logo.svg" alt=""></a>
+                            <a href="#"><img src="assets/img/logo/Logo.svg" alt=""></a>
                         </div>
                         <div class="main-menu__wrap ul_li navbar navbar-expand-lg">
 
@@ -65,7 +65,7 @@ include('header.php');
                                     <div class="xb-header-menu-scroll">
                                         <div class="xb-menu-close xb-hide-xl xb-close"></div>
                                         <div class="xb-logo-mobile xb-hide-xl">
-                                            <a href="index.html" rel="home"><img src="assets/img/logo/Logo.svg"
+                                            <a href="#" rel="home"><img src="assets/img/logo/Logo.svg"
                                                     alt=""></a>
                                         </div>
                                         <div class="xb-header-mobile-search xb-hide-xl">
@@ -319,16 +319,18 @@ include('header.php');
                     </div>
 
                     <!-- Waitlist Info (Visible only after successful submission) -->
+                    <!-- Success/Error Message Display -->
                     <?php if (isset($status)): ?>
-                        <div id="waitlist-info" class="text-center" style="margin-top: 20px;">
-                            <p style="color: <?= $status == 'success' ? 'green' : 'red'; ?>;"><?= $message; ?></p>
+                        <div class="notification <?= $status == 'success' ? 'success' : 'error'; ?>">
+                            <h3><?= $message; ?></h3>
                             <?php if ($status == 'success'): ?>
-                                <h3>Your Waitlist Position: <span><?= $position; ?></span></h3>
-                                <p>Total Participants: <span><?= $total; ?></span></p>
+                                <p>Your Waitlist Position: <strong><?= $position; ?></strong></p>
+                                <p>Total Participants: <strong><?= $total; ?></strong></p>
                                 <p>Your Referral Code: <strong><?= $referral_code; ?></strong></p>
                             <?php endif; ?>
                         </div>
                     <?php endif; ?>
+
                 </div>
             </section>
             <!-- Request Email and Wallet Address Section End -->
