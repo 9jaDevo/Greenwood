@@ -17,6 +17,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Email already exists
         $status = 'error';
         $message = 'You have already submitted your email.';
+        // Redirect with error message only (no position, referral code, or total)
+        header("Location: index.php?status=$status&message=" . urlencode($message));
+        exit;
     } else {
         // Calculate position based on total participants
         $totalResult = $conn->query("SELECT COUNT(*) AS total FROM submissions");
@@ -32,10 +35,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Submission successful
             $status = 'success';
             $message = 'Submission successful!';
+            // Redirect with the success message and data
+            header("Location: index.php?status=$status&message=" . urlencode($message) . "&position=$position&referral_code=$referralCode&total=$total");
+            exit;
         } else {
             // Something went wrong
             $status = 'error';
             $message = 'Something went wrong. Please try again.';
+            // Redirect with error message only
+            header("Location: index.php?status=$status&message=" . urlencode($message));
+            exit;
         }
 
         $stmt->close();
@@ -43,8 +52,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Close the connection
     $conn->close();
-
-    // Redirect back to index.php with the status and relevant data
-    header("Location: index.php?status=$status&message=" . urlencode($message) . "&position=$position&referral_code=$referralCode&total=$total");
-    exit;
 }

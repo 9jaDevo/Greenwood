@@ -7,6 +7,15 @@ $totalParticipantsQuery = "SELECT COUNT(*) AS total FROM submissions";
 $result = $conn->query($totalParticipantsQuery);
 $totalParticipants = $result->fetch_assoc()['total'];
 $displayCount = 3000 + $totalParticipants; // Static 3000 + DB count
+
+// Handle message and data from submission (if any)
+if (isset($_GET['status'])) {
+    $status = $_GET['status'];  // 'success' or 'error'
+    $message = $_GET['message'];
+    $position = $_GET['position'] ?? '';  // Check if position is set
+    $referral_code = $_GET['referral_code'] ?? '';  // Check if referral_code is set
+    $total = $_GET['total'] ?? $totalParticipants;  // Default to current total if not set
+}
 ?>
 <!doctype html>
 <html lang="en">
@@ -323,7 +332,6 @@ include('header.php');
                 </div>
             </section>
             <!-- Request Email and Wallet Address Section End -->
-
 
             <!-- feature crypto start -->
             <section id="features" class="feature pos-rel z-1 mt-130">
