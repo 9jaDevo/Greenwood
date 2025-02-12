@@ -319,7 +319,7 @@ include('header.php');
                     </div>
 
                     <!-- Waitlist Info (Visible only after successful submission) -->
-                    <!-- Success/Error Message Display -->
+                    <!-- Success/Error Message Display
                     <?php if (isset($status)): ?>
                         <div class="notification <?= $status == 'success' ? 'success' : 'error'; ?>">
                             <h3><?= $message; ?></h3>
@@ -329,7 +329,21 @@ include('header.php');
                                 <p>Your Referral Code: <strong><?= $referral_code; ?></strong></p>
                             <?php endif; ?>
                         </div>
+                    <?php endif; ?> -->
+
+                    <?php if (isset($status)): ?>
+                        <div class="alert alert-<?= $status == 'success' ? 'success' : 'danger'; ?> alert-dismissible fade show" role="alert">
+                            <strong><?= ucfirst($status); ?>!</strong> <?= $message; ?>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
                     <?php endif; ?>
+
+                    <!-- Referral Link Section -->
+                    <div id="referral-link-container" class="text-center" style="margin-top: 20px;">
+                        <p><strong>Your Referral Code: </strong><span id="referral-link"><?= $referral_code; ?></span></p>
+                        <button class="btn btn-primary" id="copy-referral-link">Copy Referral Link</button>
+                        <button class="btn btn-info" id="share-referral-link">Share Referral Link</button>
+                    </div>
 
                 </div>
             </section>
@@ -595,20 +609,18 @@ include('header.php');
                     });
     </script>
 
+    <!-- Toast Notification -->
+    <div id="toast-notification" class="toast position-absolute top-0 start-0 p-3" style="z-index: 1050; display: none;">
+        <div class="toast-header">
+            <strong class="me-auto">Greenwood AI</strong>
+            <small>Just now</small>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body" id="toast-body">
+            Your referral link has been copied!
+        </div>
+    </div>
 
-    // <!-- jquery include -->
-    // <script src="assets/js/jquery-3.7.1.min.js"></script>
-    // <script src="assets/js/bootstrap.bundle.min.js"></script>
-    // <script src="assets/js/swiper.min.js"></script>
-    // <script src="assets/js/wow.min.js"></script>
-    // <script src="assets/js/appear.js"></script>
-    // <script src="assets/js/odometer.min.js"></script>
-    // <script src="assets/js/jquery.magnific-popup.min.js"></script>
-    // <script src="assets/js/easing.min.js"></script>
-    // <script src="assets/js/scrollspy.js"></script>
-    // <script src="assets/js/countdown.js"></script>
-    // <script src="assets/js/parallax-scroll.js"></script>
-    // <script src="assets/js/main.js"></script>
 
     <?php
     include('footer.php');
