@@ -197,88 +197,66 @@ include('header.php');
             <!-- hero section end  -->
 
             <!-- partners section start  -->
-            <section class="partners z-1 pos-rel partners-two pt-200">
+            <section class="partners z-3 pt-135">
                 <div class="patners-title text-center">
-                    <span><img src="assets/img/partner/partner_07.png" alt=""> our top partners <img
-                            src="assets/img/partner/partner_08.png" alt=""></span>
+                    <span><img src="assets/img/partner/partner_07.png" alt=""> our top partners <img src="assets/img/partner/partner_08.png" alt=""></span>
                 </div>
-                <div class="partner-slider partner-slider-two ul_li">
+                <div class="partner-active partner-slider ul_li">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
                             <div class="xb-item--brand">
                                 <div class="xb-item--brand_logo">
-                                    <img src="assets/img/partner/partner_09.png" alt="">
+                                    <img src="assets/img/partner/partner_01.png" alt="">
                                 </div>
+                                <span>aptos</span>
                             </div>
                         </div>
                         <div class="swiper-slide">
                             <div class="xb-item--brand">
                                 <div class="xb-item--brand_logo">
-                                    <img src="assets/img/partner/partner_10.png" alt="">
+                                    <img src="assets/img/partner/partner_02.png" alt="">
                                 </div>
+                                <span>algorand</span>
                             </div>
                         </div>
                         <div class="swiper-slide">
                             <div class="xb-item--brand">
                                 <div class="xb-item--brand_logo">
-                                    <img src="assets/img/partner/partner_11.png" alt="">
+                                    <img src="assets/img/partner/partner_03.png" alt="">
                                 </div>
+                                <span>binance</span>
                             </div>
                         </div>
                         <div class="swiper-slide">
                             <div class="xb-item--brand">
                                 <div class="xb-item--brand_logo">
-                                    <img src="assets/img/partner/partner_12.png" alt="">
+                                    <img src="assets/img/partner/partner_04.png" alt="">
                                 </div>
+                                <span>cardano</span>
                             </div>
                         </div>
                         <div class="swiper-slide">
                             <div class="xb-item--brand">
                                 <div class="xb-item--brand_logo">
-                                    <img src="assets/img/partner/partner_13.png" alt="">
+                                    <img src="assets/img/partner/partner_05.png" alt="">
                                 </div>
+                                <span>ethereum</span>
                             </div>
                         </div>
                         <div class="swiper-slide">
                             <div class="xb-item--brand">
                                 <div class="xb-item--brand_logo">
-                                    <img src="assets/img/partner/partner_09.png" alt="">
+                                    <img src="assets/img/partner/partner_06.png" alt="">
                                 </div>
+                                <span>Arbitrum</span>
                             </div>
                         </div>
                         <div class="swiper-slide">
                             <div class="xb-item--brand">
                                 <div class="xb-item--brand_logo">
-                                    <img src="assets/img/partner/partner_14.png" alt="">
+                                    <img src="assets/img/partner/partner_01.png" alt="">
                                 </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="xb-item--brand">
-                                <div class="xb-item--brand_logo">
-                                    <img src="assets/img/partner/partner_15.png" alt="">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="xb-item--brand">
-                                <div class="xb-item--brand_logo">
-                                    <img src="assets/img/partner/partner_16.png" alt="">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="xb-item--brand">
-                                <div class="xb-item--brand_logo">
-                                    <img src="assets/img/partner/partner_14.png" alt="">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="xb-item--brand">
-                                <div class="xb-item--brand_logo">
-                                    <img src="assets/img/partner/partner_15.png" alt="">
-                                </div>
+                                <span>aptos</span>
                             </div>
                         </div>
                     </div>
