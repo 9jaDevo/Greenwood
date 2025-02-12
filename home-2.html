@@ -360,7 +360,7 @@
             <!-- Request Email and Wallet Address Section Start -->
             <section class="request-info z-1 pos-rel pt-110">
                 <div class="container">
-                    <div class="section-title pb-55 text-center">
+                    <div class="section-title pb-55 text-center" id="form">
                         <h1 class="title">Join the Airdrop</h1>
                         <p>Enter your email and wallet address to participate in the Greenwood AI airdrop and unlock
                             your crypto rewards.</p>
@@ -408,6 +408,15 @@
                                 <?= $_SESSION['referral_code']; ?>
                             </strong></p>
                     </div>
+
+                    <!-- Referral Link Section -->
+                    <div id="referral-link-container" class="text-center" style="margin-top: 20px;">
+                        <p><strong>Your Referral Code: </strong><span id="referral-link">
+                                <?= $referral_code; ?>
+                            </span></p>
+                        <button class="btn btn-primary" id="copy-referral-link">Copy Referral Link</button>
+                        <button class="btn btn-info" id="share-referral-link">Share Referral Link</button>
+                    </div>
                     <?php endif; ?>
 
                     <!-- Clear session data after showing the message to avoid it showing again after page reload -->
@@ -419,16 +428,6 @@
                         unset($_SESSION['total']);
                         ?>
                     <?php endif; ?>
-
-
-                    <!-- Referral Link Section -->
-                    <div id="referral-link-container" class="text-center" style="margin-top: 20px;">
-                        <p><strong>Your Referral Code: </strong><span id="referral-link">
-                                <?= $referral_code; ?>
-                            </span></p>
-                        <button class="btn btn-primary" id="copy-referral-link">Copy Referral Link</button>
-                        <button class="btn btn-info" id="share-referral-link">Share Referral Link</button>
-                    </div>
 
                 </div>
             </section>
