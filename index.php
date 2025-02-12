@@ -1,21 +1,25 @@
-<?php
-// Start the session to access session variables
-session_start();
-
-// Include database connection
-include('config.php');
-
-// Get the total number of submissions from the database
-$totalParticipantsQuery = "SELECT COUNT(*) AS total FROM submissions";
-$result = $conn->query($totalParticipantsQuery);
-$totalParticipants = $result->fetch_assoc()['total'];
-$displayCount = 3000 + $totalParticipants; // Static 3000 + DB count
-?>
 <!doctype html>
-<html lang="en">
-<?php
-include('header.php');
-?>
+<html lang="zxx">
+
+<head>
+
+    <!--========= Required meta tags =========-->
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>GreenWordAI - Airdrop and Presales</title>
+    <link rel="shortcut icon" href="assets/img/favicon.png" type="images/x-icon" />
+
+    <!-- css include -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/fontawesome.css">
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet" href="assets/css/swiper.min.css">
+    <link rel="stylesheet" href="assets/css/odometer.css">
+    <link rel="stylesheet" href="assets/css/magnific-popup.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
 
 <body>
 
@@ -58,8 +62,7 @@ include('header.php');
                                     <div class="xb-header-menu-scroll">
                                         <div class="xb-menu-close xb-hide-xl xb-close"></div>
                                         <div class="xb-logo-mobile xb-hide-xl">
-                                            <a href="#" rel="home"><img src="assets/img/logo/Logo.svg"
-                                                    alt=""></a>
+                                            <a href="#" rel="home"><img src="assets/img/logo/Logo.svg" alt=""></a>
                                         </div>
                                         <div class="xb-header-mobile-search xb-hide-xl">
                                             <form role="search" action="#">
@@ -197,66 +200,88 @@ include('header.php');
             <!-- hero section end  -->
 
             <!-- partners section start  -->
-            <section class="partners z-3 pt-135">
+            <section class="partners z-1 pos-rel partners-two pt-200">
                 <div class="patners-title text-center">
-                    <span><img src="assets/img/partner/partner_07.png" alt=""> our top partners <img src="assets/img/partner/partner_08.png" alt=""></span>
+                    <span><img src="assets/img/partner/partner_07.png" alt=""> our top partners <img
+                            src="assets/img/partner/partner_08.png" alt=""></span>
                 </div>
-                <div class="partner-active partner-slider ul_li">
+                <div class="partner-slider partner-slider-two ul_li">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
                             <div class="xb-item--brand">
                                 <div class="xb-item--brand_logo">
-                                    <img src="assets/img/partner/partner_01.png" alt="">
+                                    <img src="assets/img/partner/partner_09.png" alt="">
                                 </div>
-                                <span>aptos</span>
                             </div>
                         </div>
                         <div class="swiper-slide">
                             <div class="xb-item--brand">
                                 <div class="xb-item--brand_logo">
-                                    <img src="assets/img/partner/partner_02.png" alt="">
+                                    <img src="assets/img/partner/partner_10.png" alt="">
                                 </div>
-                                <span>algorand</span>
                             </div>
                         </div>
                         <div class="swiper-slide">
                             <div class="xb-item--brand">
                                 <div class="xb-item--brand_logo">
-                                    <img src="assets/img/partner/partner_03.png" alt="">
+                                    <img src="assets/img/partner/partner_11.png" alt="">
                                 </div>
-                                <span>binance</span>
                             </div>
                         </div>
                         <div class="swiper-slide">
                             <div class="xb-item--brand">
                                 <div class="xb-item--brand_logo">
-                                    <img src="assets/img/partner/partner_04.png" alt="">
+                                    <img src="assets/img/partner/partner_12.png" alt="">
                                 </div>
-                                <span>cardano</span>
                             </div>
                         </div>
                         <div class="swiper-slide">
                             <div class="xb-item--brand">
                                 <div class="xb-item--brand_logo">
-                                    <img src="assets/img/partner/partner_05.png" alt="">
+                                    <img src="assets/img/partner/partner_13.png" alt="">
                                 </div>
-                                <span>ethereum</span>
                             </div>
                         </div>
                         <div class="swiper-slide">
                             <div class="xb-item--brand">
                                 <div class="xb-item--brand_logo">
-                                    <img src="assets/img/partner/partner_06.png" alt="">
+                                    <img src="assets/img/partner/partner_09.png" alt="">
                                 </div>
-                                <span>Arbitrum</span>
                             </div>
                         </div>
                         <div class="swiper-slide">
                             <div class="xb-item--brand">
                                 <div class="xb-item--brand_logo">
-                                    <img src="assets/img/partner/partner_01.png" alt="">
+                                    <img src="assets/img/partner/partner_14.png" alt="">
                                 </div>
-                                <span>aptos</span>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="xb-item--brand">
+                                <div class="xb-item--brand_logo">
+                                    <img src="assets/img/partner/partner_15.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="xb-item--brand">
+                                <div class="xb-item--brand_logo">
+                                    <img src="assets/img/partner/partner_16.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="xb-item--brand">
+                                <div class="xb-item--brand_logo">
+                                    <img src="assets/img/partner/partner_14.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="xb-item--brand">
+                                <div class="xb-item--brand_logo">
+                                    <img src="assets/img/partner/partner_15.png" alt="">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -264,24 +289,105 @@ include('header.php');
             </section>
             <!-- partners section end  -->
 
+            <!-- feature section start -->
+            <!-- <section class="feature z-1 pos-rel pt-110">
+                <div class="container">
+                    <div class="section-title pb-55">
+                        <h1 class="title">How It Works</h1>
+                    </div>
+                    <div class="row mt-none-30">
+                        <div class="col-xl-3 col-lg-6 col-md-6 feature-col mt-30">
+                            <div class="xb-feature pos-rel">
+                                <div class="xb-item--holder text-center">
+                                    <div class="xb-item--img">
+                                        <img src="assets/img/feature/feature-icon1.png" alt="">
+                                    </div>
+                                    <h2 class="xb-item--title">Create Wallet</h2>
+                                    <p class="xb-item--content">Secure your digital assets effortlessly.Join now for
+                                        peace of mind.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-6 col-md-6 feature-col mt-30">
+                            <div class="xb-feature top-border pos-rel">
+                                <div class="xb-item--holder text-center">
+                                    <div class="xb-item--img">
+                                        <img src="assets/img/feature/feature-icon2.png" alt="">
+                                    </div>
+                                    <h2 class="xb-item--title">Create Account</h2>
+                                    <p class="xb-item--content">Get started in seconds. Sign up for your account
+                                        effortlessly with us today.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-6 col-md-6 feature-col mt-30">
+                            <div class="xb-feature pos-rel">
+                                <div class="xb-item--holder text-center">
+                                    <div class="xb-item--img">
+                                        <img src="assets/img/feature/feature-icon3.png" alt="">
+                                    </div>
+                                    <h2 class="xb-item--title">Register</h2>
+                                    <p class="xb-item--content">Begin your journey swiftly. Sign up now and access
+                                        limitless with ease.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-6 col-md-6 feature-col mt-30">
+                            <div class="xb-feature top-border pos-rel">
+                                <div class="xb-item--holder text-center">
+                                    <div class="xb-item--img">
+                                        <img src="assets/img/feature/feature-icon1.png" alt="">
+                                    </div>
+                                    <h2 class="xb-item--title">Start Trading</h2>
+                                    <p class="xb-item--content">Dive in now. Seamlessly begin your trading journey with
+                                        us endless possibilities.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="xb-feature-shape">
+                    <div class="shape shape--1">
+                        <img src="assets/img/shape/h_shape3.png" alt="">
+                    </div>
+                    <div class="shape shape--2">
+                        <img data-parallax='{"y":-70}' src="assets/img/shape/f_line_shape.png" alt="">
+                    </div>
+                </div>
+            </section> -->
+            <!-- feature section end -->
 
             <!-- Request Email and Wallet Address Section Start -->
             <section class="request-info z-1 pos-rel pt-110">
                 <div class="container">
-                    <div class="section-title pb-55 text-center">
-                        <h1 class="title">Join the Airdrop</h1>
-                        <p>Enter your email and wallet address to participate in the Greenwood AI airdrop and unlock your crypto rewards.</p>
+                    <div class="section-title pb-55 text-center" id="form">
+                        <!-- Display Success/Error Message from Session -->
+                        <?php if (isset($_SESSION['status']) && isset($_SESSION['message'])): ?>
+                            <div class="alert alert-<?= $_SESSION['status'] == 'success' ? 'success' : 'danger'; ?> alert-dismissible fade show"
+                                role="alert">
+                                <strong>
+                                    <?= ucfirst($_SESSION['status']); ?>!
+                                </strong>
+                                <?= $_SESSION['message']; ?>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+
+                            <h1 class="title">Join the Airdrop</h1>
+                            <p>Enter your email and wallet address to participate in the Greenwood AI airdrop and unlock
+                                your crypto rewards.</p>
                     </div>
                     <div class="row justify-content-center">
                         <div class="col-lg-6 col-md-8">
                             <form id="airdrop-form" class="airdrop-form" action="submit_airdrop.php" method="POST">
                                 <div class="form-group mb-20">
                                     <label for="email" class="form-label">Email Address</label>
-                                    <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email address" required>
+                                    <input type="email" id="email" name="email" class="form-control"
+                                        placeholder="Enter your email address" required>
                                 </div>
                                 <div class="form-group mb-20">
                                     <label for="wallet" class="form-label">Wallet Address</label>
-                                    <input type="text" id="wallet" name="wallet" class="form-control" placeholder="Enter your wallet address" required>
+                                    <input type="text" id="wallet" name="wallet" class="form-control"
+                                        placeholder="Enter your wallet address" required>
                                 </div>
                                 <div class="form-group text-center">
                                     <button type="submit" class="btn btn-primary">Submit</button>
@@ -290,42 +396,45 @@ include('header.php');
                         </div>
                     </div>
 
-                    <!-- Display Success/Error Message from Session -->
-                    <?php if (isset($_SESSION['status']) && isset($_SESSION['message'])): ?>
-                        <div class="alert alert-<?= $_SESSION['status'] == 'success' ? 'success' : 'danger'; ?> alert-dismissible fade show" role="alert">
-                            <strong><?= ucfirst($_SESSION['status']); ?>!</strong> <?= $_SESSION['message']; ?>
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+
+
+                    <?php if ($_SESSION['status'] == 'success'): ?>
+                        <div class="text-center mt-3">
+                            <p>Your Waitlist Position: <strong>
+                                    <?= $_SESSION['position']; ?>
+                                </strong></p>
+                            <p>Total Participants: <strong>
+                                    <?= $_SESSION['total']; ?>
+                                </strong></p>
+                            <p>Your Referral Code: <strong>
+                                    <?= $_SESSION['referral_code']; ?>
+                                </strong></p>
                         </div>
 
-                        <?php if ($_SESSION['status'] == 'success'): ?>
-                            <div class="text-center mt-3">
-                                <p>Your Waitlist Position: <strong><?= $_SESSION['position']; ?></strong></p>
-                                <p>Total Participants: <strong><?= $_SESSION['total']; ?></strong></p>
-                                <p>Your Referral Code: <strong><?= $_SESSION['referral_code']; ?></strong></p>
-                            </div>
-                        <?php endif; ?>
-
-                        <!-- Clear session data after showing the message to avoid it showing again after page reload -->
-                        <?php
-                        unset($_SESSION['status']);
-                        unset($_SESSION['message']);
-                        unset($_SESSION['position']);
-                        unset($_SESSION['referral_code']);
-                        unset($_SESSION['total']);
-                        ?>
+                        <!-- Referral Link Section -->
+                        <div id="referral-link-container" class="text-center" style="margin-top: 20px;">
+                            <p><strong>Your Referral Code: </strong><span id="referral-link">
+                                    <?= $referral_code; ?>
+                                </span></p>
+                            <button class="btn btn-primary" id="copy-referral-link">Copy Referral Link</button>
+                            <button class="btn btn-info" id="share-referral-link">Share Referral Link</button>
+                        </div>
                     <?php endif; ?>
 
-
-                    <!-- Referral Link Section -->
-                    <div id="referral-link-container" class="text-center" style="margin-top: 20px;">
-                        <p><strong>Your Referral Code: </strong><span id="referral-link"><?= $referral_code; ?></span></p>
-                        <button class="btn btn-primary" id="copy-referral-link">Copy Referral Link</button>
-                        <button class="btn btn-info" id="share-referral-link">Share Referral Link</button>
-                    </div>
+                    <!-- Clear session data after showing the message to avoid it showing again after page reload -->
+                    <?php
+                            unset($_SESSION['status']);
+                            unset($_SESSION['message']);
+                            unset($_SESSION['position']);
+                            unset($_SESSION['referral_code']);
+                            unset($_SESSION['total']);
+                    ?>
+                <?php endif; ?>
 
                 </div>
             </section>
             <!-- Request Email and Wallet Address Section End -->
+
 
             <!-- Advert -->
             <section id="features" class="feature pos-rel z-1 mt-130">
@@ -343,6 +452,214 @@ include('header.php');
             </section>
             <!-- feature crypto end -->
 
+            <!-- currrency section start -->
+            <!-- <section class="currency z-1 pos-rel pt-125 pb-130">
+            <div class="container">
+                <div class="section-title pb-50 text-center">
+                    <h1 class="title">exchange any of <br> Bitcoin pairs</h1>
+                </div>
+                <div class="xb-currency">
+                    <div class="xb-item--title ul_li">
+                        <span>Name</span>
+                        <span>Price</span>
+                        <span>24h Change</span>
+                        <span>Chart</span>
+                        <span>Buy</span>
+                    </div>
+                    <ul class="xb-item--item ul_li">
+                        <li class="xb-item--curr-name d-flex align-items-center">
+                            <span class="xb-item--image"><img src="assets/img/currency/curr-icon01.png" alt=""></span>
+                            <span class="xb-item--color-white">Bitcoin</span>
+                            <span>BTC</span>
+                        </li>
+                        <li>36,201.34</li>
+                        <li>+1.71%</li>
+                        <li><img src="assets/img/currency/chart-shape01.png" alt=""></li>
+                        <li><a class="them-btn xb-item--curr-btn" href="#!">Buy Now</a></li>
+                    </ul>
+                    <ul class="xb-item--item ul_li">
+                        <li class="xb-item--curr-name d-flex align-items-center">
+                            <span class="xb-item--image img-two"><img src="assets/img/currency/curr-icon02.png" alt=""></span>
+                            <span class="xb-item--color-white">Ethereum</span>
+                            <span>ETH</span>
+                        </li>
+                        <li>$2,605.95</li>
+                        <li>+2.04%</li>
+                        <li><img src="assets/img/currency/chart-shape02.png" alt=""></li>
+                        <li><a class="them-btn xb-item--curr-btn" href="#!">Buy Now</a></li>
+                    </ul>
+                    <ul class="xb-item--item ul_li">
+                        <li class="xb-item--curr-name d-flex align-items-center">
+                            <span class="xb-item--image img-three"><img src="assets/img/currency/curr-icon03.png" alt=""></span>
+                            <span class="xb-item--color-white">Tether</span>
+                            <span>USDT</span>
+                        </li>
+                        <li>$939.20</li>
+                        <li>-0.74%</li>
+                        <li><img src="assets/img/currency/chart-shape03.png" alt=""></li>
+                        <li><a class="them-btn xb-item--curr-btn" href="#!">Buy Now</a></li>
+                    </ul>
+                    <ul class="xb-item--item ul_li">
+                        <li class="xb-item--curr-name d-flex align-items-center">
+                            <span class="xb-item--image img-four"><img src="assets/img/currency/curr-icon04.png" alt=""></span>
+                            <span class="xb-item--color-white">Ripple</span>
+                            <span>XRP</span>
+                        </li>
+                        <li>$1.02</li>
+                        <li>+1.20%</li>
+                        <li><img src="assets/img/currency/chart-shape04.png" alt=""></li>
+                        <li><a class="them-btn xb-item--curr-btn" href="#!">Buy Now</a></li>
+                    </ul>
+                    <ul class="xb-item--item ul_li">
+                        <li class="xb-item--curr-name d-flex align-items-center">
+                            <span class="xb-item--image img-five"><img src="assets/img/currency/curr-icon05.png" alt=""></span>
+                            <span class="xb-item--color-white">Chainlink</span>
+                            <span>LINK</span>
+                        </li>
+                        <li>$30.56</li>
+                        <li>-3.84%</li>
+                        <li><img src="assets/img/currency/chart-shape05.png" alt=""></li>
+                        <li><a class="them-btn xb-item--curr-btn" href="#!">Buy Now</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="currency-shape">
+                <img src="assets/img/currency/currency-shape.png" alt="">
+                <img src="assets/img/currency/currency-shape.png" alt="">
+            </div>
+        </section> -->
+            <!-- currrency section end -->
+
+            <!-- testimonial section start-->
+            <!-- <section class="testimonial pos-rel z-1">
+            <div class="testimonial-two pt-115">
+                <div class="tes-shape">
+                    <div class="shape shape--2">
+                        <img class="topToBottom2" src="assets/img/shape/tes-shape02.svg" alt="">
+                    </div>
+                    <div class="shape shape--3">
+                        <img class="topToBottom" src="assets/img/shape/tes-shape03.svg" alt="">
+                    </div>
+                    <div class="shape shape--4">
+                        <img src="assets/img/shape/it_shape1.png" alt="">
+                    </div>
+                    <div class="shape shape--5">
+                        <img src="assets/img/shape/it_shape1.png" alt="">
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="section-title pb-55">
+                        <h1 class="title">what clients says</h1>
+                    </div>
+                    <div class="xb-review ul_li_between">
+                        <div class="xb-item--holder ul_li">
+                            <div class="xb-item--img">
+                                <img src="assets/img/testimonial/tes-icon01.png" alt="">
+                            </div>
+                            <div class="xb-item--review">
+                                <div class="xb-item--star">
+                                    <img src="assets/img/testimonial/review01.png" alt="">
+                                    <span>5.0</span>
+                                </div>
+                                <span>26 REVIEWS </span>
+                            </div>
+                        </div>
+                        <div class="xb-item--holder ul_li">
+                            <div class="xb-item--img">
+                                <img src="assets/img/testimonial/tes-icon02.png" alt="">
+                            </div>
+                            <div class="xb-item--review">
+                                <div class="xb-item--star">
+                                    <img src="assets/img/testimonial/review02.png" alt="">
+                                    <span>4.8</span>
+                                </div>
+                                <span>15 REVIEWS </span>
+                            </div>
+                        </div>
+                        <div class="xb-item--holder ul_li">
+                            <div class="xb-item--img">
+                                <img src="assets/img/testimonial/tes-icon03.png" alt="">
+                            </div>
+                            <div class="xb-item--review">
+                                <div class="xb-item--star">
+                                    <img src="assets/img/testimonial/review01.png" alt="">
+                                    <span>5.0</span>
+                                </div>
+                                <span>22 REVIEWS </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="xb-testimonial-wrap">
+                        <div class="xb-testimonial-slider swiper-container">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide ul_li">
+                                    <div class="xb-item--author text-center">
+                                        <div class="xb-item--avater">
+                                            <img src="assets/img/testimonial/testimonial.jpg" alt="">
+                                        </div>
+                                        <div class="xb-item--holder">
+                                            <div class="xb-item--nationality align-items-center">
+                                                <img src="assets/img/testimonial/tes-flag.png" alt="">
+                                                <span>Denmark</span>
+                                            </div>
+                                            <h3 class="xb-item--title">Reynolds Anthony</h3>
+                                            <span class="xb-item--sub-title">Cryptocurrency Trader</span>
+                                        </div>
+                                    </div>
+                                    <div class="xb-item--content">
+                                        <p>
+                                            "Since I switched to this crypto exchange, my trading experience has been nothing short of exceptional. The platform's intuitive interface combined with lightning-fast transaction speeds has significantly enhanced my ability to execute trades effectively.."
+                                        </p>
+                                        <div class="xb-item--reating ul_li">
+                                            <img src="assets/img/testimonial/tes-clint-logo.png" alt="">
+                                            <span>5.0</span>
+                                            <img src="assets/img/testimonial/review01.png" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide ul_li">
+                                    <div class="xb-item--author text-center">
+                                        <div class="xb-item--avater">
+                                            <img src="assets/img/testimonial/testimonial.jpg" alt="">
+                                        </div>
+                                        <div class="xb-item--holder">
+                                            <div class="xb-item--nationality align-items-center">
+                                                <img src="assets/img/testimonial/tes-flag.png" alt="">
+                                                <span>Denmark</span>
+                                            </div>
+                                            <h3 class="xb-item--title">Reynolds Anthony</h3>
+                                            <span class="xb-item--sub-title">Cryptocurrency Trader</span>
+                                        </div>
+                                    </div>
+                                    <div class="xb-item--content">
+                                        <p>
+                                            "Since I switched to this crypto exchange, my trading experience has been nothing short of exceptional. The platform's intuitive interface combined with lightning-fast transaction speeds has significantly enhanced my ability to execute trades effectively.."
+                                        </p>
+                                        <div class="xb-item--reating ul_li">
+                                            <img src="assets/img/testimonial/tes-clint-logo.png" alt="">
+                                            <span>5.0</span>
+                                            <img src="assets/img/testimonial/review01.png" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="integration" class="integrate mt-115">
+                    <div class="section-title pb-25">
+                        <h1 class="title">Integrated with most popular <br> crypto currencies</h1>
+                    </div>
+                    <div class="xb-integrate">
+                       <img src="assets/img/integrate/int-bg_img.png" alt="">
+                        <div class="image">
+                            <img src="assets/img/integrate/frame.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section> -->
+            <!-- testimonial section end-->
 
             <!-- faq start -->
             <section class="faq pos-rel mt-130 pb-5">
@@ -361,21 +678,15 @@ include('header.php');
                             <li class="accordion block">
                                 <div class="accordion-inner">
                                     <div class="acc-btn">
-                                        <span>Q1:</span> How do I get started with trading on your platform?
+                                        <span>Q1:</span> What is Greenwood AI, and how does it contribute to the
+                                        blockchain ecosystem?
                                     </div>
                                     <div class="acc_body">
                                         <div class="content">
-                                            Here are some points about the cryptocurrencies you can trade on our
-                                            exchange:
-                                            <ul class="list-item">
-                                                <li>Major Cryptocurrencies.</li>
-                                                <li>New and Emerging Tokens.</li>
-                                                <li>Popular Altcoins.</li>
-                                            </ul>
-                                            We offer a wide range of cryptocurrencies for trading, including popular
-                                            options like Bitcoin (BTC), Ethereum (ETH), Ripple (XRP), and many others.
-                                            Our platform regularly updates the list of available cryptocurrencies access
-                                            options.
+                                            Greenwood AI uses cutting-edge artificial intelligence to optimize
+                                            blockchain processes, enhance security, and make cryptocurrency transactions
+                                            faster and more efficient. By integrating AI into blockchain, we aim to
+                                            create a smarter, greener, and more sustainable crypto ecosystem.
                                         </div>
                                     </div>
                                 </div>
@@ -383,19 +694,13 @@ include('header.php');
                             <li class="accordion block active-block">
                                 <div class="accordion-inner">
                                     <div class="acc-btn">
-                                        <span>Q2:</span>What cryptocurrencies can I trade on your exchange?
+                                        <span>Q2:</span> How can I participate in the Greenwood AI airdrop?
                                     </div>
                                     <div class="acc_body current">
                                         <div class="content">
-                                            <ul class="list-item">
-                                                <li>Major Cryptocurrencies.</li>
-                                                <li>New and Emerging Tokens.</li>
-                                                <li>Popular Altcoins.</li>
-                                            </ul>
-                                            We offer a wide range of cryptocurrencies for trading, including popular
-                                            options like Bitcoin (BTC), Ethereum (ETH), Ripple (XRP), and many others.
-                                            Our platform regularly updates the list of available cryptocurrencies access
-                                            options.
+                                            To participate in the Greenwood AI airdrop, simply enter your email address
+                                            and wallet address in the signup form on our website. Once you submit the
+                                            form, you will receive instructions on how to claim your free tokens.
                                         </div>
                                     </div>
                                 </div>
@@ -403,19 +708,13 @@ include('header.php');
                             <li class="accordion block">
                                 <div class="accordion-inner">
                                     <div class="acc-btn">
-                                        <span>Q3:</span>Is there a mobile app available for trading?
+                                        <span>Q3:</span> Is Greenwood AI planning to release a mobile app?
                                     </div>
                                     <div class="acc_body">
                                         <div class="content">
-                                            <ul class="list-item">
-                                                <li>Major Cryptocurrencies.</li>
-                                                <li>New and Emerging Tokens.</li>
-                                                <li>Popular Altcoins.</li>
-                                            </ul>
-                                            We offer a wide range of cryptocurrencies for trading, including popular
-                                            options like Bitcoin (BTC), Ethereum (ETH), Ripple (XRP), and many others.
-                                            Our platform regularly updates the list of available cryptocurrencies access
-                                            options.
+                                            Yes, we are currently developing a mobile app for Greenwood AI, which will
+                                            allow users to track their investments, interact with the blockchain, and
+                                            manage their airdrop rewards seamlessly on their smartphones.
                                         </div>
                                     </div>
                                 </div>
@@ -423,19 +722,15 @@ include('header.php');
                             <li class="accordion block">
                                 <div class="accordion-inner">
                                     <div class="acc-btn">
-                                        <span>Q4:</span>What are your trading fees?
+                                        <span>Q4:</span> What are the benefits of using Greenwood AI's blockchain
+                                        technology?
                                     </div>
                                     <div class="acc_body">
                                         <div class="content">
-                                            <ul class="list-item">
-                                                <li>Major Cryptocurrencies.</li>
-                                                <li>New and Emerging Tokens.</li>
-                                                <li>Popular Altcoins.</li>
-                                            </ul>
-                                            We offer a wide range of cryptocurrencies for trading, including popular
-                                            options like Bitcoin (BTC), Ethereum (ETH), Ripple (XRP), and many others.
-                                            Our platform regularly updates the list of available cryptocurrencies access
-                                            options.
+                                            Greenwood AI's blockchain technology leverages artificial intelligence to
+                                            improve transaction efficiency, reduce energy consumption, and enhance
+                                            overall network security. This helps ensure faster, greener, and more secure
+                                            cryptocurrency transactions, benefiting both users and the ecosystem.
                                         </div>
                                     </div>
                                 </div>
@@ -443,19 +738,15 @@ include('header.php');
                             <li class="accordion block">
                                 <div class="accordion-inner">
                                     <div class="acc-btn">
-                                        <span>Q5:</span>How long do deposits and withdrawals take?
+                                        <span>Q5:</span> How long does it take to receive rewards from the Greenwood AI
+                                        airdrop?
                                     </div>
                                     <div class="acc_body">
                                         <div class="content">
-                                            <ul class="list-item">
-                                                <li>Major Cryptocurrencies.</li>
-                                                <li>New and Emerging Tokens.</li>
-                                                <li>Popular Altcoins.</li>
-                                            </ul>
-                                            We offer a wide range of cryptocurrencies for trading, including popular
-                                            options like Bitcoin (BTC), Ethereum (ETH), Ripple (XRP), and many others.
-                                            Our platform regularly updates the list of available cryptocurrencies access
-                                            options.
+                                            After you successfully submit your details for the Greenwood AI airdrop, you
+                                            will receive your rewards once airdrop wallet submission is closed. Be sure
+                                            to check your email regularly for updates and instructions on how to access
+                                            your tokens.
                                         </div>
                                     </div>
                                 </div>
@@ -466,6 +757,7 @@ include('header.php');
             </section>
             <!-- faq end -->
 
+
         </main>
         <!-- main area end  -->
 
@@ -473,11 +765,120 @@ include('header.php');
         <footer class="footer z-1 pos-rel">
             <div class="footer-bg bg_img" data-background="assets/img/footer/footer-bg.png"></div>
             <div class="container">
-
+                <!-- <div class="xb-contact-form">
+                    <div class="row g-0 mt-none-30">
+                        <div class="col-lg-7 mt-30">
+                            <div class="xb-inner">
+                                <h5 class="xb-item--sub-title"><span><img src="assets/img/footer/contact.svg"
+                                            alt=""></span> Contact Us</h5>
+                                <h2 class="xb-item--title">Do you have questions or went more information?</h2>
+                                <form class="xb-item--form" action="#!">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="xb-item--field">
+                                                <span><img src="assets/img/footer/contact-user.svg" alt=""></span>
+                                                <input type="text" placeholder="Steven Kevin">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="xb-item--field">
+                                                <span><img src="assets/img/footer/contact-email.svg" alt=""></span>
+                                                <input type="email" placeholder="example@cryco.com">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="xb-item--field">
+                                                <span><img src="assets/img/footer/contact-call.svg" alt=""></span>
+                                                <input type="text" placeholder="+91 081 0256 023">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12 xb-item--text-msg">
+                                            <span><img src="assets/img/footer/contact-massage.svg" alt=""></span>
+                                            <textarea class="xb-item--massage" name="message" id="message" cols="30"
+                                                rows="10" placeholder="Simultaneously we had a problem..."></textarea>
+                                        </div>
+                                        <div class="col-lg-12 xb-item--contact-btn">
+                                            <button class="them-btn" type="submit">
+                                                <span class="btn_label" data-text="Send Message">Send Message</span>
+                                                <span class="btn_icon">
+                                                    <svg width="15" height="14" viewBox="0 0 15 14" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M14.434 0.999999C14.434 0.447714 13.9862 -8.61581e-07 13.434 -1.11446e-06L4.43396 -3.13672e-07C3.88168 -6.50847e-07 3.43396 0.447715 3.43396 0.999999C3.43396 1.55228 3.88168 2 4.43396 2L12.434 2L12.434 10C12.434 10.5523 12.8817 11 13.434 11C13.9862 11 14.434 10.5523 14.434 10L14.434 0.999999ZM2.14107 13.7071L14.1411 1.70711L12.7269 0.292893L0.726853 12.2929L2.14107 13.7071Z"
+                                                            fill="white"></path>
+                                                    </svg>
+                                                </span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-lg-5 mt-30">
+                            <div class="footer-apps">
+                                <div class="xb-item--img pos-rel">
+                                    <img src="assets/img/footer/footer-phn.png" alt="">
+                                    <div class="xb-item--shadow">
+                                        <img src="assets/img/footer/foote-app-shadow.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="xb-item--holder text-center">
+                                    <h2 class="xb-item--title">Download and enjoy the experience</h2>
+                                    <p class="xb-item--content">Don't miss out! Download now for seamless
+                                        functionalities and endless possibilities.</p>
+                                    <div class="xb-item--button">
+                                        <a class="them-btn apps-btn" href="#!">
+                                            <span class="btn_icon">
+                                                <i class="fab fa-apple"></i>
+                                            </span>
+                                            <span class="btn_label" data-text="Apple iOS">Apple iOS</span>
+                                        </a>
+                                        <a class="them-btn apps-btn" href="#!">
+                                            <span class="btn_icon"><svg width="21" height="14" viewBox="0 0 21 14"
+                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                                        d="M0.398804 12.1266C0.537847 10.5267 1.04394 9.05395 1.91712 7.70827C2.78967 6.3626 3.95204 5.29345 5.40423 4.50098L3.68942 1.63014C3.59672 1.49556 3.57354 1.35352 3.61989 1.204C3.66624 1.05447 3.76666 0.942338 3.92114 0.867577C4.04473 0.792815 4.18378 0.777861 4.33826 0.822713C4.49276 0.867577 4.61635 0.957281 4.70904 1.09186L6.42386 3.96269C7.75246 3.42441 9.14288 3.15528 10.5951 3.15528C12.0472 3.15528 13.4377 3.42441 14.7662 3.96269L16.4811 1.09186C16.5738 0.957281 16.6974 0.867577 16.8518 0.822713C17.0063 0.777861 17.1454 0.792815 17.269 0.867577C17.4235 0.942338 17.5239 1.05447 17.5702 1.204C17.6165 1.35352 17.5934 1.49556 17.5007 1.63014L15.7859 4.50098C17.238 5.29345 18.4007 6.3626 19.2739 7.70827C20.1464 9.05395 20.6523 10.5267 20.7913 12.1266V13.826H0.398804V12.1266ZM6.78336 9.3339C6.55904 9.55096 6.28467 9.6595 5.96025 9.6595C5.63581 9.6595 5.36175 9.55096 5.13805 9.3339C4.91374 9.1174 4.80158 8.85207 4.80158 8.53814C4.80158 8.22409 4.91374 7.95888 5.13805 7.74238C5.36175 7.5252 5.63581 7.41666 5.96025 7.41666C6.28467 7.41666 6.55904 7.5252 6.78336 7.74238C7.00706 7.95888 7.11891 8.22409 7.11891 8.53814C7.11891 8.85207 7.00706 9.1174 6.78336 9.3339ZM16.0527 9.3339C15.8283 9.55096 15.5539 9.6595 15.2296 9.6595C14.9051 9.6595 14.6311 9.55096 14.4074 9.3339C14.1831 9.1174 14.071 8.85207 14.071 8.53814C14.071 8.22409 14.1831 7.95888 14.4074 7.74238C14.6311 7.5252 14.9051 7.41666 15.2296 7.41666C15.5539 7.41666 15.8283 7.5252 16.0527 7.74238C16.2764 7.95888 16.3882 8.22409 16.3882 8.53814C16.3882 8.85207 16.2764 9.1174 16.0527 9.3339Z"
+                                                        fill="#080B18"></path>
+                                                </svg></span>
+                                            <span class="btn_label" data-text="Android">Android</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
             </div>
             <div class="container pt-65">
                 <div class="xb-footer">
-
+                    <!-- <div class="xb-contact_info ul_li_between pb-50">
+                        <div class="contact-method">
+                            <span><img src="assets/img/footer/footer-msg-icon.png" alt=""></span>
+                            contact@cryco.com
+                        </div>
+                        <div class="contact-method">
+                            <span><img src="assets/img/footer/footer-call-icon.png" alt=""></span>
+                            +(1) 1230 452 8597
+                        </div>
+                        <div class="contact-method">
+                            <span><img src="assets/img/footer/footer-loc-icon.png" alt=""></span>
+                            Waterloo, Park, Australia
+                        </div>
+                    </div>
+                    <div class="xb-footer-widget ul_li_between">
+                        <ul class="xb-item--footer_nav ul_li">
+                            <li><a href="#!">Home</a></li>
+                            <li><a href="#!">Features</a></li>
+                            <li><a href="#!">Integration</a></li>
+                            <li><a href="#!">Blog</a></li>
+                            <li><a href="#!">Contact</a></li>
+                        </ul>
+                        <div class="xb-item--footer_eamil">
+                            <span><img src="assets/img/footer/sms-tracking.png" alt=""></span>
+                            <input type="email" placeholder="Enter your email">
+                            <button>Subscribe</button>
+                        </div>
+                    </div> -->
                     <div class="footer-copyright ul_li_between pt-40 pb-40">
                         Copyright © 2025 GreenWordAI. All rights reserved.
                         <ul class="footer-link ul_li">
@@ -523,56 +924,100 @@ include('header.php');
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 
     <script>
-        $(document).ready(function() {
+        // Waitlist data is stored in localStorage
+        const START_COUNT = 3000; // Starting number for participants
+        let currentPosition = parseInt(localStorage.getItem('lastPosition')) || START_COUNT;
 
-                    // Share button functionality
-                    document.getElementById('share-btn').addEventListener('click', function() {
-                        const referralCode = document.getElementById('referral-code').textContent;
-                        const shareText = `Join the Greenwood AI airdrop and claim your rewards! Use my referral code: ${referralCode}`;
+        document.getElementById('airdrop-form').addEventListener('submit', function(e) {
+            e.preventDefault();
 
-                        // Set up social media links
-                        const url = window.location.href;
-                        const shareUrl = `${url}?referral=${referralCode}`;
+            const email = document.getElementById('email').value;
+            const wallet = document.getElementById('wallet').value;
 
-                        // Facebook
-                        document.getElementById('facebook-share').href = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`;
+            // Increment position with a random number between 1 and 10
+            const increment = Math.floor(Math.random() * 10) + 1;
+            currentPosition += increment;
 
-                        // Twitter
-                        document.getElementById('twitter-share').href = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}`;
+            // Generate referral code
+            const referralCode = `REF-${Math.random().toString(36).substr(2, 8).toUpperCase()}`;
 
-                        // WhatsApp
-                        document.getElementById('whatsapp-share').href = `https://wa.me/?text=${encodeURIComponent(shareText)} ${encodeURIComponent(shareUrl)}`;
+            // Save data to localStorage
+            const participants = JSON.parse(localStorage.getItem('participants')) || [];
+            participants.push({
+                email,
+                wallet,
+                position: currentPosition,
+                referralCode
+            });
+            localStorage.setItem('participants', JSON.stringify(participants));
+            localStorage.setItem('lastPosition', currentPosition);
 
-                        // Show share icons
-                        document.getElementById('share-icons').style.display = 'block';
-                    });
+            // Display the waitlist info
+            document.getElementById('position').textContent = currentPosition;
+            document.getElementById('total').textContent = currentPosition;
+            document.getElementById('referral-code').textContent = referralCode;
+            document.getElementById('waitlist-info').style.display = 'block';
 
-                    // Copy link functionality
-                    document.getElementById('copy-link').addEventListener('click', function() {
-                        const referralCode = document.getElementById('referral-code').textContent;
-                        const shareUrl = `${window.location.href}?referral=${referralCode}`;
-                        navigator.clipboard.writeText(shareUrl).then(function() {
-                            alert('Referral link copied to clipboard!');
-                        });
-                    });
+            // Show success toast
+            alert('Successfully joined the airdrop!');
+
+            // Reload the page after 2 seconds
+            setTimeout(function() {
+                location.reload();
+            }, 2000);
+        });
+
+        // Share button functionality
+        document.getElementById('share-btn').addEventListener('click', function() {
+            const referralCode = document.getElementById('referral-code').textContent;
+            const shareText = `Join the Greenwood AI airdrop and claim your rewards! Use my referral code: ${referralCode}`;
+
+            // Set up social media links
+            const url = window.location.href;
+            const shareUrl = `${url}?referral=${referralCode}`;
+
+            // Facebook
+            document.getElementById('facebook-share').href = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`;
+
+            // Twitter
+            document.getElementById('twitter-share').href = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}`;
+
+            // WhatsApp
+            document.getElementById('whatsapp-share').href = `https://wa.me/?text=${encodeURIComponent(shareText)} ${encodeURIComponent(shareUrl)}`;
+
+            // Show share icons
+            document.getElementById('share-icons').style.display = 'block';
+        });
+
+        // Copy link functionality
+        document.getElementById('copy-link').addEventListener('click', function() {
+            const referralCode = document.getElementById('referral-code').textContent;
+            const shareUrl = `${window.location.href}?referral=${referralCode}`;
+            navigator.clipboard.writeText(shareUrl).then(function() {
+                alert('Referral link copied to clipboard!');
+            });
+        });
     </script>
 
-    <!-- Toast Notification -->
-    <div id="toast-notification" class="toast position-absolute top-0 start-0 p-3" style="z-index: 1050; display: none;">
-        <div class="toast-header">
-            <strong class="me-auto">Greenwood AI</strong>
-            <small>Just now</small>
-            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-        </div>
-        <div class="toast-body" id="toast-body">
-            Your referral link has been copied!
-        </div>
-    </div>
 
+    <!-- jquery include -->
+    <!-- <script src="assets/js/jquery-3.7.1.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/swiper.min.js"></script>
+    <script src="assets/js/wow.min.js"></script>
+    <script src="assets/js/appear.js"></script>
+    <script src="assets/js/odometer.min.js"></script>
+    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="assets/js/easing.min.js"></script>
+    <script src="assets/js/scrollspy.js"></script>
+    <script src="assets/js/countdown.js"></script>
+    <script src="assets/js/parallax-scroll.js"></script>
+    <script src="assets/js/main.js"></script> -->
 
     <?php
     include('footer.php');
     ?>
+
 
 </body>
 
