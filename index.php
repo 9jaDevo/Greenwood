@@ -563,49 +563,6 @@ include('header.php');
     <script>
         $(document).ready(function() {
 
-                    // Waitlist data is stored in localStorage
-                    const START_COUNT = 3000; // Starting number for participants
-                    let currentPosition = parseInt(localStorage.getItem('lastPosition')) || START_COUNT;
-
-                    document.getElementById('airdrop-form').addEventListener('submit', function(e) {
-                        e.preventDefault();
-
-                        const email = document.getElementById('email').value;
-                        const wallet = document.getElementById('wallet').value;
-
-                        // Increment position with a random number between 1 and 10
-                        const increment = Math.floor(Math.random() * 10) + 1;
-                        currentPosition += increment;
-
-                        // Generate referral code
-                        const referralCode = `REF-${Math.random().toString(36).substr(2, 8).toUpperCase()}`;
-
-                        // Save data to localStorage
-                        const participants = JSON.parse(localStorage.getItem('participants')) || [];
-                        participants.push({
-                            email,
-                            wallet,
-                            position: currentPosition,
-                            referralCode
-                        });
-                        localStorage.setItem('participants', JSON.stringify(participants));
-                        localStorage.setItem('lastPosition', currentPosition);
-
-                        // Display the waitlist info
-                        document.getElementById('position').textContent = currentPosition;
-                        document.getElementById('total').textContent = currentPosition;
-                        document.getElementById('referral-code').textContent = referralCode;
-                        document.getElementById('waitlist-info').style.display = 'block';
-
-                        // Show success toast
-                        alert('Successfully joined the airdrop!');
-
-                        // Reload the page after 2 seconds
-                        setTimeout(function() {
-                            location.reload();
-                        }, 2000);
-                    });
-
                     // Share button functionality
                     document.getElementById('share-btn').addEventListener('click', function() {
                         const referralCode = document.getElementById('referral-code').textContent;
@@ -639,19 +596,23 @@ include('header.php');
     </script>
 
 
-    <!-- jquery include -->
-    <script src="assets/js/jquery-3.7.1.min.js"></script>
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/swiper.min.js"></script>
-    <script src="assets/js/wow.min.js"></script>
-    <script src="assets/js/appear.js"></script>
-    <script src="assets/js/odometer.min.js"></script>
-    <script src="assets/js/jquery.magnific-popup.min.js"></script>
-    <script src="assets/js/easing.min.js"></script>
-    <script src="assets/js/scrollspy.js"></script>
-    <script src="assets/js/countdown.js"></script>
-    <script src="assets/js/parallax-scroll.js"></script>
-    <script src="assets/js/main.js"></script>
+    // <!-- jquery include -->
+    // <script src="assets/js/jquery-3.7.1.min.js"></script>
+    // <script src="assets/js/bootstrap.bundle.min.js"></script>
+    // <script src="assets/js/swiper.min.js"></script>
+    // <script src="assets/js/wow.min.js"></script>
+    // <script src="assets/js/appear.js"></script>
+    // <script src="assets/js/odometer.min.js"></script>
+    // <script src="assets/js/jquery.magnific-popup.min.js"></script>
+    // <script src="assets/js/easing.min.js"></script>
+    // <script src="assets/js/scrollspy.js"></script>
+    // <script src="assets/js/countdown.js"></script>
+    // <script src="assets/js/parallax-scroll.js"></script>
+    // <script src="assets/js/main.js"></script>
+
+    <?php
+    include('footer.php');
+    ?>
 
 </body>
 
