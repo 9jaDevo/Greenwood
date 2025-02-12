@@ -2,6 +2,9 @@
 // Include database connection settings from config.php
 include('config.php');
 
+// Start the session
+session_start();
+
 // Handle form submission
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
@@ -15,10 +18,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($result->num_rows > 0) {
         // Email already exists
-        $status = 'error';
-        $message = 'You have already submitted your email.';
+        $_SESSION['status'] = 'error';
+        $_SESSION['message'] = 'You have already submitted your email.';
         // Redirect with error message only (no position, referral code, or total)
-        header("Location: index.php?status=$status&message=" . urlencode($message));
+        header("Location: index.php");
         exit;
     } else {
         // Calculate position based on total participants
@@ -33,17 +36,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if ($stmt->execute()) {
             // Submission successful
-            $status = 'success';
-            $message = 'Submission successful!';
-            // Redirect with the success message and data
-            header("Location: index.php?status=$status&message=" . urlencode($message) . "&position=$position&referral_code=$referralCode&total=$total");
+            $_SESSION['status'] = 'success';
+            $_SESSION['message'] = 'Submission successful!';
+            $_SESSION['position'] = $position;
+            $_SESSION['referral_code'] = $referralCode;
+            $_SESSION['total'] = $total;
+
+            // Redirect without URL parameters
+            header("Location: index.php");
             exit;
         } else {
             // Something went wrong
-            $status = 'error';
-            $message = 'Something went wrong. Please try again.';
+            $_SESSION['status'] = 'error';
+            $_SESSION['message'] = 'Something went wrong. Please try again.';
             // Redirect with error message only
-            header("Location: index.php?status=$status&message=" . urlencode($message));
+            header("Location: index.php");
             exit;
         }
 

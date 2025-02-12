@@ -1,4 +1,7 @@
 <?php
+// Start the session to access session variables
+session_start();
+
 // Include database connection
 include('config.php');
 
@@ -7,19 +10,9 @@ $totalParticipantsQuery = "SELECT COUNT(*) AS total FROM submissions";
 $result = $conn->query($totalParticipantsQuery);
 $totalParticipants = $result->fetch_assoc()['total'];
 $displayCount = 3000 + $totalParticipants; // Static 3000 + DB count
-
-// Handle message and data from submission (if any)
-if (isset($_GET['status'])) {
-    $status = $_GET['status'];  // 'success' or 'error'
-    $message = $_GET['message'];
-    $position = $_GET['position'] ?? '';  // Check if position is set
-    $referral_code = $_GET['referral_code'] ?? '';  // Check if referral_code is set
-    $total = $_GET['total'] ?? $totalParticipants;  // Default to current total if not set
-}
 ?>
 <!doctype html>
 <html lang="en">
-
 <?php
 include('header.php');
 ?>
@@ -319,25 +312,31 @@ include('header.php');
                         </div>
                     </div>
 
-                    <!-- Waitlist Info (Visible only after successful submission) -->
-                    <!-- Success/Error Message Display
-                    <?php if (isset($status)): ?>
-                        <div class="notification <?= $status == 'success' ? 'success' : 'error'; ?>">
-                            <h3><?= $message; ?></h3>
-                            <?php if ($status == 'success'): ?>
-                                <p>Your Waitlist Position: <strong><?= $position; ?></strong></p>
-                                <p>Total Participants: <strong><?= $total; ?></strong></p>
-                                <p>Your Referral Code: <strong><?= $referral_code; ?></strong></p>
-                            <?php endif; ?>
-                        </div>
-                    <?php endif; ?> -->
-
-                    <?php if (isset($status)): ?>
-                        <div class="alert alert-<?= $status == 'success' ? 'success' : 'danger'; ?> alert-dismissible fade show" role="alert">
-                            <strong><?= ucfirst($status); ?>!</strong> <?= $message; ?>
+                    <!-- Display Success/Error Message from Session -->
+                    <?php if (isset($_SESSION['status']) && isset($_SESSION['message'])): ?>
+                        <div class="alert alert-<?= $_SESSION['status'] == 'success' ? 'success' : 'danger'; ?> alert-dismissible fade show" role="alert">
+                            <strong><?= ucfirst($_SESSION['status']); ?>!</strong> <?= $_SESSION['message']; ?>
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
+
+                        <?php if ($_SESSION['status'] == 'success'): ?>
+                            <div class="text-center mt-3">
+                                <p>Your Waitlist Position: <strong><?= $_SESSION['position']; ?></strong></p>
+                                <p>Total Participants: <strong><?= $_SESSION['total']; ?></strong></p>
+                                <p>Your Referral Code: <strong><?= $_SESSION['referral_code']; ?></strong></p>
+                            </div>
+                        <?php endif; ?>
+
+                        <!-- Clear session data after showing the message to avoid it showing again after page reload -->
+                        <?php
+                        unset($_SESSION['status']);
+                        unset($_SESSION['message']);
+                        unset($_SESSION['position']);
+                        unset($_SESSION['referral_code']);
+                        unset($_SESSION['total']);
+                        ?>
                     <?php endif; ?>
+
 
                     <!-- Referral Link Section -->
                     <div id="referral-link-container" class="text-center" style="margin-top: 20px;">
