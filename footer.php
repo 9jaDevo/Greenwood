@@ -38,16 +38,6 @@
 <!-- JavaScript for Copy, Share, and Toast Notification -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-    // Copy Referral Link to Clipboard
-    document.getElementById('copy-referral-link').addEventListener('click', function() {
-        const referralCode = document.getElementById('referral-link').textContent;
-        const shareUrl = `${window.location.href}?referral=${referralCode}`;
-
-        navigator.clipboard.writeText(shareUrl).then(function() {
-            showToast('Referral link copied to clipboard!');
-        });
-    });
-
     // Show Toast Notification (Custom Toasts on Top-Left)
     function showToast(message) {
         const toastBody = document.getElementById('toast-body');
