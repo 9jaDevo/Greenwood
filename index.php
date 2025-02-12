@@ -1,25 +1,21 @@
+<?php
+// Start the session to access session variables
+session_start();
+
+// Include database connection
+include('config.php');
+
+// Get the total number of submissions from the database
+$totalParticipantsQuery = "SELECT COUNT(*) AS total FROM submissions";
+$result = $conn->query($totalParticipantsQuery);
+$totalParticipants = $result->fetch_assoc()['total'];
+$displayCount = 3000 + $totalParticipants; // Static 3000 + DB count
+?>
 <!doctype html>
-<html lang="zxx">
-
-<head>
-
-    <!--========= Required meta tags =========-->
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>GreenWordAI - Airdrop and Presales</title>
-    <link rel="shortcut icon" href="assets/img/favicon.png" type="images/x-icon" />
-
-    <!-- css include -->
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/fontawesome.css">
-    <link rel="stylesheet" href="assets/css/animate.css">
-    <link rel="stylesheet" href="assets/css/swiper.min.css">
-    <link rel="stylesheet" href="assets/css/odometer.css">
-    <link rel="stylesheet" href="assets/css/magnific-popup.css">
-    <link rel="stylesheet" href="assets/css/main.css">
-</head>
+<html lang="en">
+<?php
+include('header.php');
+?>
 
 <body>
 
