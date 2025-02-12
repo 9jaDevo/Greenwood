@@ -15,35 +15,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($result->num_rows > 0) {
         // Email already exists
-        echo json_encode(["status" => "error", "message" => "You have already submitted your email."]);
-        exit;
-    }
-
-    // Increment position
-    $position = rand(3000, 3010); // Random position for simplicity
-    $referralCode = "REF-" . strtoupper(substr(md5(rand()), 0, 8));
-
-    // Insert new submission
-    $stmt = $conn->prepare("INSERT INTO submissions (email, wallet_address, referral_code, position) VALUES (?, ?, ?, ?)");
-    $stmt->bind_param("sssi", $email, $wallet, $referralCode, $position);
-
-    if ($stmt->execute()) {
-        // Query to get the total number of participants/submissions
+        $message = "You have already submitted your email.";
+        $status = "error";
+    } else {
+        // Increment position (based on the current total number of participants)
         $totalResult = $conn->query("SELECT COUNT(*) AS total FROM submissions");
         $total = $totalResult->fetch_assoc()['total'];
+        $position = 3000 + $total + 1; // Static 3000 + current number of participants + 1
+        $referralCode = "REF-" . strtoupper(substr(md5(rand()), 0, 8));
 
-        // Return success response along with position, referral code, and total participants
-        echo json_encode([
-            "status" => "success",
-            "message" => "Submission successful!",
-            "position" => $position,
-            "referral_code" => $referralCode,
-            "total" => $total
-        ]);
-    } else {
-        echo json_encode(["status" => "error", "message" => "Something went wrong. Please try again."]);
+        // Insert new submission
+        $stmt = $conn->prepare("INSERT INTO submissions (email, wallet_address, referral_code, position) VALUES (?, ?, ?, ?)");
+        $stmt->bind_param("sssi", $email, $wallet, $referralCode, $position);
+
+        if ($stmt->execute()) {
+            // Submission successful
+            $message = "Submission successful!";
+            $status = "success";
+        } else {
+            // Something went wrong
+            $message = "Something went wrong. Please try again.";
+            $status = "error";
+        }
+
+        $stmt->close();
     }
 
-    $stmt->close();
+    // Close the connection
     $conn->close();
 }

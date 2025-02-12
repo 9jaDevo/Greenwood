@@ -293,7 +293,7 @@ include('header.php');
                     </div>
                     <div class="row justify-content-center">
                         <div class="col-lg-6 col-md-8">
-                            <form id="airdrop-form" class="airdrop-form">
+                            <form id="airdrop-form" class="airdrop-form" action="submit_airdrop.php" method="POST">
                                 <div class="form-group mb-20">
                                     <label for="email" class="form-label">Email Address</label>
                                     <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email address" required>
@@ -551,41 +551,6 @@ include('header.php');
 
     <script>
         $(document).ready(function() {
-                    // Handle the form submission
-                    $('#airdrop-form').submit(function(e) {
-                        e.preventDefault(); // Prevent the form from submitting the traditional way
-
-                        var email = $('#email').val();
-                        var wallet = $('#wallet').val();
-
-                        // Prepare the data to send
-                        var formData = {
-                            email: email,
-                            wallet: wallet
-                        };
-
-                        // Perform the AJAX request
-                        $.ajax({
-                            url: 'submit_airdrop.php', // Path to your PHP script
-                            type: 'POST',
-                            data: formData,
-                            dataType: 'json',
-                            success: function(response) {
-                                // Handle success
-                                if (response.status === 'success') {
-                                    $('#waitlist-info').show(); // Show the waitlist info section
-                                    $('#position').text(response.position);
-                                    $('#referral-code').text(response.referral_code);
-                                    $('#total').text(response.total); // Assuming `total` is included in the response
-                                } else {
-                                    alert(response.message); // Show error message
-                                }
-                            },
-                            error: function() {
-                                alert('An error occurred. Please try again.');
-                            }
-                        });
-                    });
 
                     // Waitlist data is stored in localStorage
                     const START_COUNT = 3000; // Starting number for participants
