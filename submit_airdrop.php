@@ -15,13 +15,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($result->num_rows > 0) {
         // Email already exists
-        $message = "You have already submitted your email.";
-        $status = "error";
+        $status = 'error';
+        $message = 'You have already submitted your email.';
     } else {
-        // Increment position (based on the current total number of participants)
+        // Calculate position based on total participants
         $totalResult = $conn->query("SELECT COUNT(*) AS total FROM submissions");
         $total = $totalResult->fetch_assoc()['total'];
-        $position = 3000 + $total + 1; // Static 3000 + current number of participants + 1
+        $position = 3000 + $total + 1; // Static 3000 + total count + 1
         $referralCode = "REF-" . strtoupper(substr(md5(rand()), 0, 8));
 
         // Insert new submission
@@ -30,12 +30,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if ($stmt->execute()) {
             // Submission successful
-            $message = "Submission successful!";
-            $status = "success";
+            $status = 'success';
+            $message = 'Submission successful!';
         } else {
             // Something went wrong
-            $message = "Something went wrong. Please try again.";
-            $status = "error";
+            $status = 'error';
+            $message = 'Something went wrong. Please try again.';
         }
 
         $stmt->close();
@@ -43,4 +43,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Close the connection
     $conn->close();
+
+    // Redirect back to index.php with the status and relevant data
+    header("Location: index.php?status=$status&message=" . urlencode($message) . "&position=$position&referral_code=$referralCode&total=$total");
+    exit;
 }

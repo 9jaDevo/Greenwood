@@ -9,7 +9,7 @@ $totalParticipants = $result->fetch_assoc()['total'];
 $displayCount = 3000 + $totalParticipants; // Static 3000 + DB count
 ?>
 <!doctype html>
-<html lang="zxx">
+<html lang="en">
 
 <?php
 include('header.php');
@@ -309,15 +309,19 @@ include('header.php');
                         </div>
                     </div>
 
-                    <!-- Waitlist Info -->
-                    <div id="waitlist-info" class="text-center" style="display: none; margin-top: 20px;">
-                        <h3>Your Waitlist Position: <span id="position"></span></h3>
-                        <p>Total Participants: <span id="total"></span></p>
-                        <p>Your Referral Code: <strong id="referral-code"></strong></p>
-                    </div>
+                    <!-- Waitlist Info (Visible only after successful submission) -->
+                    <?php if (isset($status)): ?>
+                        <div id="waitlist-info" class="text-center" style="margin-top: 20px;">
+                            <p style="color: <?= $status == 'success' ? 'green' : 'red'; ?>;"><?= $message; ?></p>
+                            <?php if ($status == 'success'): ?>
+                                <h3>Your Waitlist Position: <span><?= $position; ?></span></h3>
+                                <p>Total Participants: <span><?= $total; ?></span></p>
+                                <p>Your Referral Code: <strong><?= $referral_code; ?></strong></p>
+                            <?php endif; ?>
+                        </div>
+                    <?php endif; ?>
                 </div>
             </section>
-
             <!-- Request Email and Wallet Address Section End -->
 
 
