@@ -53,43 +53,16 @@
                 <div class="container">
                     <div class="header__wrap ul_li_between">
                         <div class="header-logo">
-                            <a href="index.html"><img src="assets/img/logo/Logo.svg" alt=""></a>
+                            <a href="#"><img src="assets/img/logo/Logo.svg" alt=""></a>
                         </div>
                         <div class="main-menu__wrap ul_li navbar navbar-expand-lg">
-                            <!-- <nav class="main-menu collapse navbar-collapse">
-                                <ul>
-                                    <li class="menu-item-has-children">
-                                        <a href="index.html"><span>Home</span></a>
-                                        <ul class="submenu">
-                                            <li><a href="index.html"><span>ICO Investment</span></a></li>
-                                            <li><a href="home-2.html"><span>Crypto Exchange</span></a></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a class="scrollspy-btn" href="#features"><span>Features</span></a>
-                                    </li>
-                                    <li>
-                                        <a class="scrollspy-btn" href="#integration"><span>Integration</span></a>
-                                   </li>
-                                    <li class="menu-item-has-children">
-                                        <a href="#!"><span>Blog</span></a>
-                                        <ul class="submenu">
-                                            <li><a href="blog.html"><span>Blog</span></a></li>
-                                            <li><a href="blog-single.html"><span>Blog Details</span></a></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="contact.html"><span>Contact</span></a>
-                                    </li>
-                                </ul>
-                            </nav> -->
+
                             <div class="xb-header-wrap">
                                 <div class="xb-header-menu">
                                     <div class="xb-header-menu-scroll">
                                         <div class="xb-menu-close xb-hide-xl xb-close"></div>
                                         <div class="xb-logo-mobile xb-hide-xl">
-                                            <a href="index.html" rel="home"><img src="assets/img/logo/Logo.svg"
-                                                    alt=""></a>
+                                            <a href="#" rel="home"><img src="assets/img/logo/Logo.svg" alt=""></a>
                                         </div>
                                         <div class="xb-header-mobile-search xb-hide-xl">
                                             <form role="search" action="#">
@@ -394,7 +367,7 @@
                     </div>
                     <div class="row justify-content-center">
                         <div class="col-lg-6 col-md-8">
-                            <form id="airdrop-form" class="airdrop-form">
+                            <form id="airdrop-form" class="airdrop-form" action="submit_airdrop.php" method="POST">
                                 <div class="form-group mb-20">
                                     <label for="email" class="form-label">Email Address</label>
                                     <input type="email" id="email" name="email" class="form-control"
@@ -411,18 +384,54 @@
                             </form>
                         </div>
                     </div>
-                    <!-- Display Waitlist Position -->
-                    <div id="waitlist-info" class="text-center" style="display: none; margin-top: 20px;">
-                        <h3>Your Waitlist Position: <span id="position"></span></h3>
-                        <p>Total Participants: <span id="total"></span></p>
-                        <p>Your Referral Code: <strong id="referral-code"></strong></p>
-                        <div>
-                            <button class="btn btn-secondary" id="share-btn">Share on Social Media</button>
-                        </div>
+
+                    <!-- Display Success/Error Message from Session -->
+                    <?php if (isset($_SESSION['status']) && isset($_SESSION['message'])): ?>
+                    <div class="alert alert-<?= $_SESSION['status'] == 'success' ? 'success' : 'danger'; ?> alert-dismissible fade show"
+                        role="alert">
+                        <strong>
+                            <?= ucfirst($_SESSION['status']); ?>!
+                        </strong>
+                        <?= $_SESSION['message']; ?>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
+
+                    <?php if ($_SESSION['status'] == 'success'): ?>
+                    <div class="text-center mt-3">
+                        <p>Your Waitlist Position: <strong>
+                                <?= $_SESSION['position']; ?>
+                            </strong></p>
+                        <p>Total Participants: <strong>
+                                <?= $_SESSION['total']; ?>
+                            </strong></p>
+                        <p>Your Referral Code: <strong>
+                                <?= $_SESSION['referral_code']; ?>
+                            </strong></p>
+                    </div>
+                    <?php endif; ?>
+
+                    <!-- Clear session data after showing the message to avoid it showing again after page reload -->
+                    <?php
+                        unset($_SESSION['status']);
+                        unset($_SESSION['message']);
+                        unset($_SESSION['position']);
+                        unset($_SESSION['referral_code']);
+                        unset($_SESSION['total']);
+                        ?>
+                    <?php endif; ?>
+
+
+                    <!-- Referral Link Section -->
+                    <div id="referral-link-container" class="text-center" style="margin-top: 20px;">
+                        <p><strong>Your Referral Code: </strong><span id="referral-link">
+                                <?= $referral_code; ?>
+                            </span></p>
+                        <button class="btn btn-primary" id="copy-referral-link">Copy Referral Link</button>
+                        <button class="btn btn-info" id="share-referral-link">Share Referral Link</button>
+                    </div>
+
                 </div>
             </section>
-
             <!-- Request Email and Wallet Address Section End -->
 
 
