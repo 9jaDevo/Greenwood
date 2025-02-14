@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['status'] = 'error';
         $_SESSION['message'] = 'You have already submitted your email.';
         // Redirect with error message only (no position, referral code, or total)
-        header("Location: index.php");
+        header("Location: index.php?#airdropform");
         exit;
     } else {
         // Calculate position based on total participants
@@ -43,14 +43,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['total'] = $total;
 
             // Redirect without URL parameters
-            header("Location: index.php");
+            header("Location: index.php?#airdropform");
             exit;
         } else {
             // Something went wrong
             $_SESSION['status'] = 'error';
             $_SESSION['message'] = 'Something went wrong. Please try again.';
             // Redirect with error message only
-            header("Location: index.php");
+            header("Location: index.php?#airdropform");
             exit;
         }
 
