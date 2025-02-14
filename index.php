@@ -407,7 +407,7 @@ include('header.php');
 
                             <!-- Referral Link Section -->
                             <div id="referral-link-container" class="text-center" style="margin-top: 20px;">
-                                <p><strong>Your Referral Code: </strong><span id="referral-link"><?= $referral_code; ?></span></p>
+                                <p><strong>Your Referral Code: </strong><span id="referral-link"><?= $_SESSION['referral_code']; ?></span></p>
                                 <button class="btn btn-primary" id="copy-referral-link">Copy Referral Link</button>
                                 <button class="btn btn-info" id="share-referral-link">Share Referral Link</button>
                                 <a href="https://twitter.com/intent/tweet?text=Join%20me%20on%20the%20Greenwood%20AI%20airdrop!%20Use%20my%20referral%20code%20%23<?= $referral_code; ?>" target="_blank">
