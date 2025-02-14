@@ -148,7 +148,7 @@ include('header.php');
                             Greenwood AI revolution and be part of the next big thing in cryptocurrency. Claim your free
                             airdrop today and take the first step toward smarter, greener blockchain technology.</p>
                         <div class="hero__btn btns pt-60 wow fadeInUp" data-wow-duration=".7s" data-wow-delay="250ms">
-                            <a class="them-btn" href="#form">
+                            <a class="them-btn" href="#airdropform">
                                 <span class="btn_label" data-text="Get Started">Get Started</span>
                                 <span class="btn_icon">
                                     <svg width="15" height="14" viewBox="0 0 15 14" fill="none"
@@ -159,8 +159,8 @@ include('header.php');
                                     </svg>
                                 </span>
                             </a>
-                            <a href="contact.html" class="them-btn btn-transparent">
-                                <span class="btn_label" data-text="Explore More">Explore More</span>
+                            <a href="#airdropfaq" class="them-btn btn-transparent">
+                                <span class="btn_label" data-text="Know More">Know More</span>
                                 <span class="btn_icon">
                                     <svg width="15" height="14" viewBox="0 0 15 14" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -440,7 +440,18 @@ include('header.php');
                     </div>
                     <div class="feature-counter-wrap pt-130">
                         <div class="container">
-
+                            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5311601087710634"
+                                crossorigin="anonymous"></script>
+                            <!-- AirDrp -->
+                            <ins class="adsbygoogle"
+                                style="display:block"
+                                data-ad-client="ca-pub-5311601087710634"
+                                data-ad-slot="4251799297"
+                                data-ad-format="auto"
+                                data-full-width-responsive="true"></ins>
+                            <script>
+                                (adsbygoogle = window.adsbygoogle || []).push({});
+                            </script>
                         </div>
                     </div>
                 </div>
@@ -450,7 +461,7 @@ include('header.php');
 
 
             <!-- faq start -->
-            <section class="faq pos-rel mt-130 pb-5">
+            <section class="faq pos-rel mt-130 pb-5" id="airdropfaq">
                 <div class="faq-shape_two">
                     <img src="assets/img/shape/faq-shape01.svg" alt="">
                     <img src="assets/img/shape/faq-shape01.svg" alt="">
