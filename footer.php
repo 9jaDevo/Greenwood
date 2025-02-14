@@ -1,21 +1,26 @@
 <!-- JavaScript for Copy and Share Functions -->
 <script>
+    // Base URL of the website
+    var baseURL = "https://greenwoodai.space/?";
+
     // Function to copy referral link to clipboard
     document.getElementById("copy-referral-link").addEventListener("click", function() {
-        var referralLink = document.getElementById("referral-link").innerText;
+        var referralCode = document.getElementById("referral-link").innerText;
+        var fullReferralLink = baseURL + referralCode;
         var textArea = document.createElement("textarea");
-        textArea.value = referralLink;
+        textArea.value = fullReferralLink;
         document.body.appendChild(textArea);
         textArea.select();
         document.execCommand("copy");
         document.body.removeChild(textArea);
-        alert("Referral link copied to clipboard!");
+        alert("Referral link copied to clipboard: " + fullReferralLink);
     });
 
     // Function to share referral link via WhatsApp
     document.getElementById("share-referral-link").addEventListener("click", function() {
-        var referralLink = document.getElementById("referral-link").innerText;
-        var whatsappURL = "https://wa.me/?text=" + encodeURIComponent("Join me on the Greenwood AI airdrop! Use my referral code: " + referralLink);
+        var referralCode = document.getElementById("referral-link").innerText;
+        var fullReferralLink = baseURL + referralCode;
+        var whatsappURL = "https://wa.me/?text=" + encodeURIComponent("Join me on the Greenwood AI airdrop! Use my referral code: " + fullReferralLink);
         window.open(whatsappURL, "_blank");
     });
 </script>
