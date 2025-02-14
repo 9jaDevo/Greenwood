@@ -356,7 +356,7 @@ include('header.php');
             <!-- Request Email and Wallet Address Section Start -->
             <section class="request-info z-1 pos-rel pt-110">
                 <div class="container">
-                    <div class="section-title pb-55 text-center" id="form">
+                    <div class="section-title pb-55 text-center" id="airdropform">
                         <h1 class="title">Join the Airdrop</h1>
                         <p>Enter your email and wallet address to participate in the Greenwood AI airdrop and unlock
                             your crypto rewards.</p>
