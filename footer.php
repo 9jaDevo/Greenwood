@@ -1,3 +1,25 @@
+<!-- JavaScript for Copy and Share Functions -->
+<script>
+    // Function to copy referral link to clipboard
+    document.getElementById("copy-referral-link").addEventListener("click", function() {
+        var referralLink = document.getElementById("referral-link").innerText;
+        var textArea = document.createElement("textarea");
+        textArea.value = referralLink;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand("copy");
+        document.body.removeChild(textArea);
+        alert("Referral link copied to clipboard!");
+    });
+
+    // Function to share referral link via WhatsApp
+    document.getElementById("share-referral-link").addEventListener("click", function() {
+        var referralLink = document.getElementById("referral-link").innerText;
+        var whatsappURL = "https://wa.me/?text=" + encodeURIComponent("Join me on the Greenwood AI airdrop! Use my referral code: " + referralLink);
+        window.open(whatsappURL, "_blank");
+    });
+</script>
+
 <!-- jQuery CDN -->
 <script src="assets/js/jquery-3.7.1.min.js"></script>
 
