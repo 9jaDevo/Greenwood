@@ -172,7 +172,8 @@ include('header.php');
                             </a>
                         </div>
                         <div class="hero-dashbord wow fadeInUp" data-wow-duration=".7s" data-wow-delay="350ms">
-                            <img src="assets/img/hero/Dashbord.png" alt="" class="d-none d-lg-flex">
+                            <img src="assets/img/hero/Dashbord.png" alt="" class="d-none d-sm-block">
+
                             <div class="dashbord-shape">
                                 <div class="shape shape--1">
                                     <img class="topToBottom" src="assets/img/shape/hero-sp_09.svg" alt="">
