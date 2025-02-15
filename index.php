@@ -49,7 +49,7 @@ include('header.php');
                 <div class="container">
                     <div class="header__wrap ul_li_between">
                         <div class="header-logo">
-                            <a href="#"><img src="assets/img/logo/Logo.svg" alt=""></a>
+                            <a href="#"><img src="assets/img/logo/Logo.svg" alt="" style="max-width: 200px;padding-top: 10px;"></a>
                         </div>
                         <div class="main-menu__wrap ul_li navbar navbar-expand-lg">
 
