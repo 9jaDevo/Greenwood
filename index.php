@@ -66,7 +66,7 @@ include('header.php');
                                                     class="search-field">
                                             </form>
                                         </div>
-                                        <nav class="xb-header-nav">
+                                        <!-- <nav class="xb-header-nav">
                                             <ul class="xb-menu-primary clearfix">
                                                 <li class="menu-item menu-item-has-children">
                                                     <a href="index.html"><span>Home</span></a>
@@ -96,7 +96,7 @@ include('header.php');
                                                     <a href="contact.html"><span>Contact</span></a>
                                                 </li>
                                             </ul>
-                                        </nav>
+                                        </nav> -->
                                     </div>
                                 </div>
                                 <div class="xb-header-menu-backdrop"></div>
