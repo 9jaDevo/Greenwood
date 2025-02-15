@@ -502,6 +502,17 @@ include('header.php');
                                             and wallet address in the signup form on our website. Once you submit the
                                             form, you will receive instructions on how to claim your free tokens.
                                         </div>
+                                        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5311601087710634"
+                                            crossorigin="anonymous"></script>
+                                        <ins class="adsbygoogle"
+                                            style="display:block; text-align:center;"
+                                            data-ad-layout="in-article"
+                                            data-ad-format="fluid"
+                                            data-ad-client="ca-pub-5311601087710634"
+                                            data-ad-slot="5468640058"></ins>
+                                        <script>
+                                            (adsbygoogle = window.adsbygoogle || []).push({});
+                                        </script>
                                     </div>
                                 </div>
                             </li>
