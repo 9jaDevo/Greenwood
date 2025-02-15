@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $totalResult = $conn->query("SELECT COUNT(*) AS total FROM submissions");
         $total = $totalResult->fetch_assoc()['total'];
         $position = 3000 + $total + 1; // Static 3000 + total count + 1
-        $referralCode = "ref" . strtoupper(substr(md5(rand()), 0, 8));
+        $referralCode = "ref=" . strtoupper(substr(md5(rand()), 0, 8));
 
         // Insert new submission
         $stmt = $conn->prepare("INSERT INTO submissions (email, wallet_address, referral_code, position) VALUES (?, ?, ?, ?)");

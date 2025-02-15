@@ -172,7 +172,8 @@ include('header.php');
                             </a>
                         </div>
                         <div class="hero-dashbord wow fadeInUp" data-wow-duration=".7s" data-wow-delay="350ms">
-                            <img src="assets/img/hero/Dashbord.png" alt="">
+                            <img src="assets/img/hero/Dashbord.png" alt="" class="d-none d-lg-block">
+
                             <div class="dashbord-shape">
                                 <div class="shape shape--1">
                                     <img class="topToBottom" src="assets/img/shape/hero-sp_09.svg" alt="">
@@ -438,7 +439,7 @@ include('header.php');
                         <img src="assets/img/feature/fea-shape-01.png" alt="">
                         <img src="assets/img/feature/fea-shape-01.png" alt="">
                     </div>
-                    <div class="feature-counter-wrap pt-130">
+                    <div class="feature-counter-wrap pt-50">
                         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5311601087710634"
                             crossorigin="anonymous"></script>
                         <!-- AirDrp -->
