@@ -1,7 +1,7 @@
 <!-- JavaScript for Copy and Share Functions -->
 <script>
     // Base URL of the website
-    var baseURL = "https://greenwoodai.space/?";
+    var baseURL = "https://airdrop.greenwoodai.space/?";
 
     // Function to copy referral link to clipboard
     document.getElementById("copy-referral-link").addEventListener("click", function() {
